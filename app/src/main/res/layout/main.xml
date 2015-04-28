@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="#FFFFFFFF">
+	<LinearLayout
+		android:id="@+id/Ad"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="0"
+        android:orientation="horizontal"
+		/>   
+	<TableLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:stretchColumns="1"
+		android:layout_weight="1"> 	
+		<TextView 
+				android:text=""/>				
+		<TableRow>
+			<TextView 
+				android:id="@+id/from_text" 
+				android:text="@string/from_text"/>
+			<Spinner 
+				android:id="@+id/from_language" />
+		</TableRow> 
+		<TableRow>
+			<TextView
+				android:id="@+id/to_text" 
+				android:text="@string/to_text"/>
+			<Spinner 
+				android:id="@+id/to_language"/>
+		</TableRow>
+		<TextView
+			android:id="@+id/translated_text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dip"
+			android:layout_weight="0.0"
+			android:textSize="18sp" 
+			android:textColor="#FF0000"/>
+		<EditText
+			android:id="@+id/original_text"
+			android:hint="@string/original_hint"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:padding="15dip"
+			android:textSize="18sp"
+			android:autoText="true"
+			android:gravity="center_vertical"
+			/>	
+	 </TableLayout>	
+	<LinearLayout style="@android:style/ButtonBar"
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom">
+        <Button android:id="@+id/clear_button" 
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@android:drawable/ic_menu_delete"/>
+        <Button android:id="@+id/change_button" 
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@android:drawable/ic_menu_revert"/>
+        <Button android:id="@+id/search_button" 
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@android:drawable/ic_menu_search"/>
+        <Button android:id="@+id/share_button" 
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@android:drawable/ic_menu_share"/>
+     <!--   <Button android:id="@+id/vr_button"
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/microphone"/>
+        <Button android:id="@+id/tts_button" 
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/speechmedia"/>  -->
+    </LinearLayout>   
+</LinearLayout>

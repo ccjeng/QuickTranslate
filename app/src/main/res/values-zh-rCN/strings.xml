@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">快速翻译</string>
+    <string name="from_text">自:</string>
+    <string name="to_text">至:</string>
+    <string name="original_hint">输入文字</string>
+    <string name="back_text"></string>
+    <string name="empty"></string>
+    <string name="translating">翻译中...</string>
+    <string name="translation_error">(网路错误)</string> 
+    <string name="translation_interrupted">(翻译中断)</string>  
+    <string name="about_title">关於</string> 
+    <string name="exit_title">离开</string>
+    <string name="share_title">分享</string>
+    <string name="clear_title">清除</string>
+    <string name="search_title">搜索</string>
+    <string name="change_title">交换</string>
+    <string name="vr_title">语音辨识</string>
+    <string name="tts_title">TTS</string>   
+    <string name="preference_title">設定</string>
+    <string name="fuzzy_pref_title">启用模糊翻译</string>
+    <string name="fuzzy_pref_summary">自动侦测输入文字的语言种类 </string> 
+    <string name="search_pref_title">搜索引擎設定</string>
+    <string name="search_pref_summary">选择喜好的搜索引擎</string> 
+    <string name="vr_pref_title">启用语音辨识</string>
+    <string name="vr_pref_summary">使用语音辨识作为文字输入, 请注意, 需要事先安装Google语音搜寻</string>
+    <string name="upgrade_pref_title">升级Pro版本</string>
+	<string name="upgrade_pref_summary">连结Android Market下载Pro版本</string>
+    <string name="ok_label">确认</string>  
+</resources>

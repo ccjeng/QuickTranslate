@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<CheckBoxPreference
+	 		android:key="fuzzy"
+	 		android:title="@string/fuzzy_pref_title"
+            android:summary="@string/fuzzy_pref_summary"
+            android:defaultValue="false" />
+ <!--    <CheckBoxPreference
+	 		android:key="vr"
+	 		android:title="@string/vr_pref_title"
+            android:summary="@string/vr_pref_summary"
+            android:defaultValue="false" />	          -->
+    <ListPreference
+            android:title="@string/search_pref_title"
+            android:summary="@string/search_pref_summary"
+            android:key="search"
+            android:defaultValue="Google"
+            android:entries="@array/search_engine"
+            android:entryValues="@array/search_engine" />
+                          
+    <Preference
+            android:title="@string/about_title"
+            android:summary=""
+            android:key="about" />
+    <Preference
+            android:title="@string/upgrade_pref_title"
+            android:summary="@string/upgrade_pref_summary"
+            android:key="upgrade" />        
+</PreferenceScreen>

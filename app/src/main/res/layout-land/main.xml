@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="#FFFFFFFF">
+	<LinearLayout
+		android:id="@+id/Ad"
+	    android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="0"
+	    />  	
+	<TableLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:stretchColumns="1"
+		android:layout_weight="1">
+		<TableRow>
+			<TextView 
+				android:id="@+id/from_text" 
+				android:text="@string/from_text"/>
+			<Spinner 
+				android:id="@+id/from_language" />
+		</TableRow> 
+		<TableRow>
+			<TextView
+				android:id="@+id/to_text" 
+				android:text="@string/to_text"/>
+			<Spinner 
+				android:id="@+id/to_language"/>
+		</TableRow>
+		<TextView
+			android:id="@+id/translated_text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.0"
+			android:textSize="18sp" 
+			android:textColor="#FF0000"/>	
+		<EditText
+			android:id="@+id/original_text"
+			android:hint="@string/original_hint"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:textSize="18sp"
+			android:autoText="true"/>		
+	</TableLayout>
+	<LinearLayout style="@android:style/ButtonBar"
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+         <Button android:id="@+id/clear_button" 
+        	android:text="@string/clear_title"
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Button android:id="@+id/change_button" 
+        	android:text="@string/change_title"
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>        
+        <Button android:id="@+id/search_button" 
+        	android:text="@string/search_title"
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Button android:id="@+id/share_button" 
+        	android:text="@string/share_title"
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Button android:id="@+id/vr_button" 
+        	android:text="@string/vr_title"
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Button android:id="@+id/tts_button" 
+        	android:text="@string/tts_title"
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>     
+    </LinearLayout>    
+</LinearLayout>

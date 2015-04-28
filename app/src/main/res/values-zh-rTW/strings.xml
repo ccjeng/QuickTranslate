@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">快速翻譯</string>
+    <string name="from_text">自:</string>
+    <string name="to_text">至:</string>
+    <string name="original_hint">輸入文字</string>
+    <string name="back_text"></string>
+    <string name="empty"></string>
+    <string name="translating">翻譯中...</string>
+    <string name="translation_error">(網路錯誤)</string> 
+    <string name="translation_interrupted">(翻譯中斷)</string>  
+    <string name="about_title">關於</string> 
+    <string name="exit_title">離開</string>
+    <string name="share_title">分享</string>
+    <string name="clear_title">清除</string>
+    <string name="search_title">搜尋</string>
+    <string name="change_title">交換</string>
+    <string name="vr_title">語音辨識</string>
+    <string name="tts_title">TTS</string>    
+    <string name="preference_title">設定</string>
+    <string name="fuzzy_pref_title">啓用模糊翻譯</string>
+    <string name="fuzzy_pref_summary">自動偵測輸入文字的語言種類</string> 
+    <string name="search_pref_title">搜尋引擎設定</string>
+    <string name="search_pref_summary">選擇喜好的搜尋引擎</string>
+    <string name="vr_pref_title">啟用語音辨識</string>
+    <string name="vr_pref_summary">使用語音辨識作為文字輸入, 請注意, 需要事先安裝Google語音搜尋</string>
+ 	<string name="upgrade_pref_title">升級Pro版本</string>
+	<string name="upgrade_pref_summary">連結Android Market下載Pro版本</string>
+ 
+    <string name="ok_label">確認</string>  
+</resources>
