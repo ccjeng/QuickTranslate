@@ -71,7 +71,7 @@
             android:layout_width="0dip" 
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
-        <Button android:id="@+id/vr_button" 
+<!--        <Button android:id="@+id/vr_button"
         	android:text="@string/vr_title"
             android:layout_width="0dip" 
             android:layout_height="wrap_content"
@@ -80,6 +80,6 @@
         	android:text="@string/tts_title"
             android:layout_width="0dip" 
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>     
+            android:layout_weight="1"/>   -->
     </LinearLayout>    
 </LinearLayout>

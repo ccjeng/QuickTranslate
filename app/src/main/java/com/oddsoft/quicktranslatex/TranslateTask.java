@@ -4,19 +4,22 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
+
 import android.util.Log;
 
 import org.json.JSONObject;
 
 public class TranslateTask implements Runnable {
 	private static final String TAG = "TranslateTask";
-	private final QuickTranslate translate;
+	private final MainActivity translate;
 	private final String original, from, to;
 	
-	TranslateTask(QuickTranslate translate, String original, String from, String to) {
+	TranslateTask(MainActivity translate, String original, String from, String to) {
 		this.translate = translate;
 		this.original = original;
 		this.from = from;
@@ -60,37 +63,24 @@ public class TranslateTask implements Runnable {
 			String q = URLEncoder.encode(original, "UTF-8");
 
             //http://frengly.com?src=fr&dest=en&text=Bonjour+monsieur&email=ccjeng@gmail.com&password=ab1234&outformat=json
-            String url = "http://frengly.com?src="+from+"&dest="+to+"&text"+q+"&email=ccjeng@gmail.com&password=ab1234&outformat=json";
+            String url = "http://frengly.com?src="+from+"&dest="+to+"&text="+q+"&email=ccjeng@gmail.com&password=ab1234&outformat=json";
 
-            HttpURLConnection uc = (HttpURLConnection) new URL(url.toString()).openConnection();
-            uc.setDoInput(true);
-            uc.setDoOutput(true);
+            Log.d(TAG, url);
 
+            InputStream is= new URL(url).openStream();
             try {
-                Log.d(TAG, "getInputStream()");
-                InputStream is= uc.getInputStream();
+                BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
 
-                JSONObject json = new JSONObject(toString(is));
-                result = ((JSONObject)json.get("")).getString("translation");
+                String jsonText = readAll(rd);
+                JSONObject json = new JSONObject(jsonText);
+
+                Log.d(TAG, "json = " + json);
+                result = json.get("translation").toString();
 
             } finally { // http://java.sun.com/j2se/1.5.0/docs/guide/net/http-keepalive.html
-                uc.getInputStream().close();
-                if (uc.getErrorStream() != null)
-                    uc.getErrorStream().close();
+                is.close();
             }
 
-			//Translate.setKey("37A1C964DB8F38CA2505D785E33EA42946F49851");
-			//Translate.setClientId("android-oddsoft-quicktranslate"/* Enter your Windows Azure Client Id here */);
-		    //Translate.setClientSecret("VBs/Kx3C+oHQeZ5IzYKg4tiSECe4aiK78i2JKi2OI3M="/* Enter your Windows Azure Client Secret here */);
-			
-			if (to!=null) {
-				//result = Translate.execute(q, Language.fromString(from), Language.fromString(to));
-			}
-			else {
-				//auto detect 
-				//result = Translate.execute(q, Language.fromString(to));
-			}
-			
 			// Check if task has been interrupted
 			if (Thread.interrupted())
 				throw new InterruptedException();
@@ -109,20 +99,12 @@ public class TranslateTask implements Runnable {
 		return result;
 	}
 
-    private static String toString(InputStream inputStream) throws Exception {
-        StringBuilder outputBuilder = new StringBuilder();
-        try {
-            String string;
-            if (inputStream != null) {
-                BufferedReader reader =
-                        new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
-                while (null != (string = reader.readLine())) {
-                    outputBuilder.append(string).append('\n');
-                }
-            }
-        } catch (Exception ex) {
-            Log.e(TAG, "Error reading translation stream.", ex);
+    private static String readAll(Reader rd) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        int cp;
+        while ((cp = rd.read()) != -1) {
+            sb.append((char) cp);
         }
-        return outputBuilder.toString();
+        return sb.toString();
     }
 }

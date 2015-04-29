@@ -22,13 +22,14 @@ public class Prefs extends PreferenceActivity {
 	                              }
 	                      });
 	      // Get the custom preference
-	      Preference upgradePref = (Preference) findPreference("upgrade");
+	 /*     Preference upgradePref = (Preference) findPreference("upgrade");
 	      upgradePref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
 	                       public boolean onPreferenceClick(Preference preference) {
 	                    	   		linkMarket();
 	                                 return true;
-	                              }
+	                             }
 	                      });
+	                      */
 	}
 	
 	private void linkMarket() {
