@@ -74,7 +74,7 @@ public class TranslateTask implements Runnable {
                 String jsonText = readAll(rd);
                 JSONObject json = new JSONObject(jsonText);
 
-                Log.d(TAG, "json = " + json);
+                //Log.d(TAG, "json = " + json);
                 result = json.get("translation").toString();
 
             } finally { // http://java.sun.com/j2se/1.5.0/docs/guide/net/http-keepalive.html
@@ -99,12 +99,15 @@ public class TranslateTask implements Runnable {
 		return result;
 	}
 
-    private static String readAll(Reader rd) throws IOException {
+    private static String readAll(BufferedReader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
-        int cp;
-        while ((cp = rd.read()) != -1) {
-            sb.append((char) cp);
+
+        String line = null;
+
+        while ((line = rd.readLine()) != null) {
+            sb.append(line + "\n");
         }
+
         return sb.toString();
     }
 }

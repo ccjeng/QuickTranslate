@@ -8,8 +8,8 @@
         android:id="@+id/Ad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
         android:orientation="horizontal"
+        android:layout_weight="0"
         />
     <TableLayout
         android:layout_width="wrap_content"
@@ -40,24 +40,28 @@
             android:padding="10dip"
             android:layout_weight="0.4"
             android:textSize="18sp"
-            android:textColor="#FF0000"/>
+            android:textColor="#FF0000"
+            android:background="#fffffcf8"
+            android:isScrollContainer="false"
+            android:singleLine="false" />
         <EditText
             android:id="@+id/original_text"
             android:hint="@string/original_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
-            android:padding="15dip"
+            android:padding="0dp"
             android:textSize="18sp"
             android:autoText="true"
             android:gravity="center_vertical"
-            />
+            android:inputType="textAutoComplete"
+            android:linksClickable="false"/>
     </TableLayout>
     <LinearLayout style="@android:style/ButtonBar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="bottom">
+        android:gravity="bottom" >
         <Button android:id="@+id/clear_button"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
@@ -87,4 +91,5 @@
             android:layout_gravity="center"
             />
     </LinearLayout>
+
 </LinearLayout>
