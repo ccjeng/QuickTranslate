@@ -46,8 +46,6 @@ public class MainActivity extends Activity
     private Button clearButton;
     private Button searchButton;
     private Button shareButton;
-    private AdView adView;
-
     private boolean fuzzyPreference;
     private String searchPreference;
 
@@ -107,20 +105,9 @@ public class MainActivity extends Activity
     }
 
     private void adView() {
-        // 建立 adView。
-        adView = new AdView(this);
-        adView.setAdUnitId("ca-app-pub-6914084100751028/3864312812");
-        adView.setAdSize(AdSize.BANNER);
-
-        // 假設 LinearLayout 已獲得 android:id="@+id/mainLayout" 屬性，
-        // 查詢 LinearLayout。
-        LinearLayout layout = (LinearLayout)findViewById(R.id.Ad);
-
-        // 在其中加入 adView。
-        layout.addView(adView);
-
-        // 啟動一般請求。
+        AdView adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
+
         //AdRequest adRequest = new AdRequest.Builder()
         //        .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // 仿真器
         //        .addTestDevice("7710C21FF2537758BF3F80963477D68E") // 我的 Galaxy Nexus 測試手機

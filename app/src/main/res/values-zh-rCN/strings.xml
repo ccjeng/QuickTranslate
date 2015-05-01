@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">快速翻译</string>
+    <string name="app_name">快速翻译XD</string>
     <string name="from_text">自:</string>
     <string name="to_text">至:</string>
     <string name="original_hint">输入文字</string>
@@ -29,7 +29,7 @@
     <string name="ok_label">确认</string>
 
     <string name="license">Copyright (c) 2015 oddsoft (ccjeng@google.com)\n\n
-Quick Translate v.3.0.1
+Quick Translate XD
 \nA lightweight language translation tool. Use Frengly translate service to translate between language pairs.
 \n
 \nFeatures:

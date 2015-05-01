@@ -1,14 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.oddsoft.quicktranslatex.MainActivity" >
     <item android:id="@+id/action_settings"
         android:title="@string/preference_title"
         android:orderInCategory="100"
-        app:showAsAction="ifRoom"
+        android:showAsAction="ifRoom"
         android:icon="@android:drawable/ic_menu_preferences"/>
     <item android:id="@+id/exit_settings"
         android:title="@string/exit_title"
         android:orderInCategory="100"
-        app:showAsAction="ifRoom"
+        android:showAsAction="ifRoom"
         android:icon="@android:drawable/ic_menu_close_clear_cancel"/>
 </menu>
