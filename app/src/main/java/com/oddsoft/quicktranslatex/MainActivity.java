@@ -57,6 +57,7 @@ public class MainActivity extends Activity
     private ExecutorService transThread;
     private Runnable updateTask;
     private Future<?> transPending;
+    private AdView adView;
 
     final Handler updateHandler = new Handler();
 
@@ -75,6 +76,8 @@ public class MainActivity extends Activity
     @Override
     protected void onPause() {
         super.onPause();
+        if (adView != null)
+            adView.pause();
         // Save user preferences.
         SharedPreferences settings = getSharedPreferences(PREF, 3);
         settings.edit()
@@ -82,14 +85,20 @@ public class MainActivity extends Activity
                 .putInt(PREF_TO, toSpinner.getSelectedItemPosition())
                 .commit();
     }
+
+
     @Override
     protected void onResume() {
         super.onResume();
+        if (adView != null)
+            adView.resume();
     }
     @Override
     protected void onDestroy() {
         // Terminate extra threads here
         transThread.shutdownNow();
+        if (adView != null)
+            adView.destroy();
         super.onDestroy();
     }
 
@@ -105,14 +114,13 @@ public class MainActivity extends Activity
     }
 
     private void adView() {
-        AdView adView = (AdView) findViewById(R.id.adView);
+        adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
 
         //AdRequest adRequest = new AdRequest.Builder()
         //        .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // 仿真器
         //        .addTestDevice("7710C21FF2537758BF3F80963477D68E") // 我的 Galaxy Nexus 測試手機
         //        .build();
-        // 以廣告請求載入 adView。
         adView.loadAd(adRequest);
     }
 
@@ -383,4 +391,5 @@ public class MainActivity extends Activity
 
         return super.onOptionsItemSelected(item);
     }
+
 }
