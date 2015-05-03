@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
     <LinearLayout
         android:id="@+id/Ad"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="0">
@@ -17,18 +17,17 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            ads:adSize="SMART_BANNER"
-            ads:adUnitId="ca-app-pub-6914084100751028/3864312812">
+            app:adSize="SMART_BANNER"
+            app:adUnitId="ca-app-pub-6914084100751028/3864312812">
         </com.google.android.gms.ads.AdView>
     </LinearLayout>
+
     <TableLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:stretchColumns="1"
         android:layout_weight="1">
-        <TextView
-            android:text=""/>
         <TableRow>
             <TextView
                 android:id="@+id/from_text"
@@ -43,15 +42,20 @@
             <Spinner
                 android:id="@+id/to_language"/>
         </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
         <TextView
             android:id="@+id/translated_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dip"
-            android:layout_weight="0.4"
-            android:textSize="18sp"
+            android:layout_weight="0.8"
+            android:textSize="20sp"
             android:textColor="#FF0000"
-            android:background="#fffffcf8"
             android:isScrollContainer="false"
             android:singleLine="false" />
         <EditText
@@ -59,15 +63,15 @@
             android:hint="@string/original_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6"
+            android:layout_weight="0.2"
             android:padding="0dp"
-            android:textSize="18sp"
-            android:autoText="true"
+            android:textSize="20sp"
             android:gravity="center_vertical"
-            android:inputType="textAutoComplete"
-            android:linksClickable="false"/>
-    </TableLayout>
-    <LinearLayout style="@android:style/ButtonBar"
+            android:linksClickable="false"
+            android:singleLine="true"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

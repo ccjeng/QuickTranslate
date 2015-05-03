@@ -28,7 +28,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.RejectedExecutionException;
 
-
 public class MainActivity extends Activity
         implements View.OnClickListener {
 
@@ -326,9 +325,9 @@ public class MainActivity extends Activity
             changeButton.setVisibility(View.GONE);
         }
         else {
-            fromSpinner.setVisibility(View.VISIBLE);
-            fromText.setVisibility(View.VISIBLE);
-            changeButton.setVisibility(View.VISIBLE);
+            //fromSpinner.setVisibility(View.VISIBLE);
+            //fromText.setVisibility(View.VISIBLE);
+            //changeButton.setVisibility(View.VISIBLE);
         }
     }
 
