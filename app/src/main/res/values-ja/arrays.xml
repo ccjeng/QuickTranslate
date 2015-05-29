@@ -1,93 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string-array name="languages">
-	    <item>英語</item>
-        <item>アラビア語</item>
+    <string-array name="languages">
+        <item>英語</item>
+        <item>アラビア</item>
         <item>ブルガリア語</item>
-        <item>中国語(簡体字)</item>
-        <item>中国語(繁体字)</item>
-        <item>クロアチア語</item>
-        <item>チェコ語</item>
-        <item>デンマーク語</item>
-        <item>オランダ語</item>
+        <item>中国語簡体</item>
+        <item>中国語繁体</item>
+        <item>チェコ</item>
+        <item>デンマーク</item>
+        <item>オランダ</item>
         <item>エストニア語</item>
-        <item>フィリピン人語</item>
-        <item>フィンランド語</item>
-        <item>フランス語</item>
-        <item>ドイツ語</item>
-        <item>ギリシャ語</item>
-        <item>ヘブライ語</item>
-        <item>ヒンディー語</item>
-        <item>ハンガリー語</item>
-        <item>アイスランド語</item>
-        <item>インドネシア語</item>
-        <item>アイリッシュ</item>
-        <item>イタリア語</item>
+        <item>フィンランド</item>
+        <item>フランス</item>
+        <item>ドイツ</item>
+        <item>ギリシャ</item>
+        <item>ハイチ語</item>
+        <item>ヘブライ</item>
+        <item>ハンガリー</item>
+        <item>インドネシア</item>
+        <item>イタリ</item>
         <item>日本語</item>
         <item>韓国語</item>
-        <item>ラテン語</item>
-        <item>ラトビア語</item>
+        <item>ラトビア</item>
         <item>リトアニア語</item>
-        <item>マケドニア語</item>
-        <item>マルタ語</item>
-        <item>ノルウェー語</item>
-        <item>ペルシア語</item>
-        <item>ポーランド語</item>
-        <item>ポルトガル語</item>
+        <item>ノルウェー</item>
+        <item>ポーランド</item>
+        <item>ポルトガル</item>
         <item>ルーマニア語</item>
         <item>ロシア語</item>
-        <item>セルビア語</item>
         <item>スロバキア語</item>
         <item>スロベニア語</item>
-        <item>スペイン語</item>
-        <item>スウェーデン語</item>
-        <item>タイ語</item>
-        <item>トルコ語</item>
-        <item>ベトナム語</item>
-	</string-array>
+        <item>スペイン</item>
+        <item>スウェーデン</item>
+        <item>タイ</item>
+        <item>トルコ</item>
+        <item>ウクライナ語</item>
+        <item>ベトナム</item>
+    </string-array>
     <string-array name="languages_values">
         <item>en</item>
         <item>ar</item>
         <item>bg</item>
-        <item>zhCN</item>
-        <item>zhTW</item>
-        <item>hr</item>
+        <item>zh-CHS</item>
+        <item>zh-CHT</item>
         <item>cs</item>
         <item>da</item>
         <item>nl</item>
         <item>et</item>
-        <item>tl</item>
         <item>fi</item>
         <item>fr</item>
         <item>de</item>
         <item>el</item>
-        <item>iw</item>
-        <item>hi</item>
+        <item>ht</item>
+        <item>he</item>
         <item>hu</item>
-        <item>is</item>
         <item>id</item>
-        <item>ga</item>
         <item>it</item>
         <item>ja</item>
         <item>ko</item>
-        <item>la</item>
         <item>lv</item>
         <item>lt</item>
-        <item>mk</item>
-        <item>mt</item>
         <item>no</item>
-        <item>fa</item>
         <item>pl</item>
         <item>pt</item>
         <item>ro</item>
         <item>ru</item>
-        <item>sr</item>
         <item>sk</item>
-        <item>si</item>
+        <item>sl</item>
         <item>es</item>
         <item>sv</item>
         <item>th</item>
         <item>tr</item>
+        <item>uk</item>
         <item>vi</item>
     </string-array>
     <string-array name="search_engine">

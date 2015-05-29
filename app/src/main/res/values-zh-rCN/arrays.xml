@@ -2,92 +2,76 @@
 <resources>
     <string-array name="languages">
         <item>英语</item>
-        <item>阿拉伯语</item>            
+        <item>阿拉伯语</item>
         <item>保加利亚语</item>
         <item>简体中文</item>
-        <item>繁体中文</item>                
-        <item>克罗地亚语</item>                
-        <item>捷克语</item>                
-        <item>丹麦语</item>                
-        <item>荷兰语</item>                
-        <item>爱沙尼亚语</item>                
-        <item>菲律宾语</item>                
-        <item>芬兰语</item>                
-        <item>法语</item>                
-        <item>德语</item>                
-        <item>希腊语</item>                
-        <item>希伯来语</item>                
-        <item>印地语</item>                
-        <item>匈牙利语</item>                
-        <item>冰岛语</item>                
-        <item>印度尼西亚语</item>                
-        <item>爱尔兰语</item>                
-        <item>义大利语</item>           
-        <item>日语</item>                
-        <item>韩语</item>                
-        <item>拉丁语</item>                
-        <item>拉脱维亚语</item>                
-        <item>立陶宛语</item>                
-        <item>马其顿语</item>                
-        <item>马耳他语</item>                
-        <item>挪威语</item>                
-        <item>波斯语</item>
+        <item>繁体中文</item>
+        <item>捷克语</item>
+        <item>丹麦语</item>
+        <item>荷兰语</item>
+        <item>爱沙尼亚语</item>
+        <item>芬兰语</item>
+        <item>法语</item>
+        <item>德语</item>
+        <item>希腊语</item>
+        <item>海地语</item>
+        <item>希伯来文</item>
+        <item>匈牙利语</item>
+        <item>印尼语</item>
+        <item>意大利语</item>
+        <item>日文</item>
+        <item>韩文</item>
+        <item>拉脱维亚语</item>
+        <item>立陶宛语</item>
+        <item>挪威语</item>
         <item>波兰语</item>
         <item>葡萄牙语</item>
         <item>罗马尼亚语</item>
-        <item>俄语</item>                
-        <item>塞尔维亚语</item>                
-        <item>斯洛伐克语</item>                
-        <item>斯洛文尼亚语</item>                
-        <item>西班牙语</item>                
-        <item>瑞典语</item>                
-        <item>泰语</item>                
-        <item>土耳其语</item>                
+        <item>俄罗斯语</item>
+        <item>斯洛伐克语</item>
+        <item>斯洛文尼亚语</item>
+        <item>西班牙语</item>
+        <item>瑞典语</item>
+        <item>泰文</item>
+        <item>土耳其语</item>
+        <item>乌克兰语</item>
         <item>越南语</item>
     </string-array>
     <string-array name="languages_values">
         <item>en</item>
         <item>ar</item>
         <item>bg</item>
-        <item>zhCN</item>
-        <item>zhTW</item>
-        <item>hr</item>
+        <item>zh-CHS</item>
+        <item>zh-CHT</item>
         <item>cs</item>
         <item>da</item>
         <item>nl</item>
         <item>et</item>
-        <item>tl</item>
         <item>fi</item>
         <item>fr</item>
         <item>de</item>
         <item>el</item>
-        <item>iw</item>
-        <item>hi</item>
+        <item>ht</item>
+        <item>he</item>
         <item>hu</item>
-        <item>is</item>
         <item>id</item>
-        <item>ga</item>
         <item>it</item>
         <item>ja</item>
         <item>ko</item>
-        <item>la</item>
         <item>lv</item>
         <item>lt</item>
-        <item>mk</item>
-        <item>mt</item>
         <item>no</item>
-        <item>fa</item>
         <item>pl</item>
         <item>pt</item>
         <item>ro</item>
         <item>ru</item>
-        <item>sr</item>
         <item>sk</item>
-        <item>si</item>
+        <item>sl</item>
         <item>es</item>
         <item>sv</item>
         <item>th</item>
         <item>tr</item>
+        <item>uk</item>
         <item>vi</item>
     </string-array>
     <string-array name="search_engine">
