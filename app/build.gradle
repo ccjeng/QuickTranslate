@@ -6,7 +6,7 @@ android {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 14
         targetSdkVersion 22
-        versionCode 10
+        versionCode 12
         versionName '3.4'
     }
     buildTypes {
