@@ -13,13 +13,5 @@
             android:defaultValue="Google"
             android:entries="@array/search_engine"
             android:entryValues="@array/search_engine" />
-                          
-    <Preference
-            android:title="@string/about_title"
-            android:summary=""
-            android:key="about" />
-   <!-- <Preference
-            android:title="@string/upgrade_pref_title"
-            android:summary="@string/upgrade_pref_summary"
-            android:key="upgrade" />        -->
+
 </PreferenceScreen>

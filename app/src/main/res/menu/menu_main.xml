@@ -1,14 +1,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.oddsoft.quicktranslatex.MainActivity" >
-    <item android:id="@+id/action_settings"
-        android:title="@string/preference_title"
+
+    <item android:id="@+id/clear_button"
+        android:title="@string/clear_title"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_delete"/>
+    <item android:id="@+id/change_button"
+        android:title="@string/change_title"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_revert"/>
+    <item android:id="@+id/search_button"
+        android:title="@string/search_title"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
-        android:icon="@android:drawable/ic_menu_preferences"/>
-    <item android:id="@+id/exit_settings"
-        android:title="@string/exit_title"
+        android:icon="@android:drawable/ic_menu_search"/>
+    <item android:id="@+id/share_button"
+        android:title="@string/share_title"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"/>
+        android:icon="@android:drawable/ic_menu_share"/>
+
 </menu>

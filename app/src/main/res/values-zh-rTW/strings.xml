@@ -29,6 +29,11 @@
  
     <string name="ok_label">確認</string>
 
+    <string-array name="drawer_menu">
+        <item>設定</item>
+        <item>關於</item>
+    </string-array>
+
     <string name="license">Copyright (c) 2015 oddsoft (ccjeng@google.com)\n\n
 Quick Translate XD
 \nA lightweight language translation tool. Use Frengly translate service to translate between language pairs.
