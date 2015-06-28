@@ -27,7 +27,11 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 import com.google.android.gms.ads.*;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.oddsoft.quicktranslatex.app.Analytics;
+import com.oddsoft.quicktranslatex.app.QuickTranslateX;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,7 +76,6 @@ public class MainActivity extends Activity {
     // 記錄被選擇的選單指標用
     private int mCurrentMenuItemPosition = -1;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +90,11 @@ public class MainActivity extends Activity {
         setListeners();
         restorePrefs();
         adView();
+
+        Analytics ga = new Analytics();
+        if (!QuickTranslateX.APPDEBUG)
+            ga.initTracker(this);
+
     }
 
     @Override
@@ -109,6 +117,7 @@ public class MainActivity extends Activity {
         if (adView != null)
             adView.resume();
     }
+
     @Override
     protected void onDestroy() {
         // Terminate extra threads here
@@ -121,26 +130,35 @@ public class MainActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
+        if (!QuickTranslateX.APPDEBUG)
+            GoogleAnalytics.getInstance(this).reportActivityStop(this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        if (!QuickTranslateX.APPDEBUG)
+            GoogleAnalytics.getInstance(this).reportActivityStart(this);
         getPrefs();
     }
 
     private void adView() {
         adView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-        //AdRequest adRequest = new AdRequest.Builder()
-        //        .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // 仿真器
-        //        .addTestDevice("7710C21FF2537758BF3F80963477D68E") // 我的 Galaxy Nexus 測試手機
-        //        .build();
+        AdRequest adRequest;
+        if (QuickTranslateX.APPDEBUG) {
+            adRequest = new AdRequest.Builder()
+                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // 仿真器
+                    .addTestDevice("7710C21FF2537758BF3F80963477D68E") // 我的 Galaxy Nexus 測試手機
+                    .build();
+        } else {
+            adRequest = new AdRequest.Builder().build();
+        }
         adView.loadAd(adRequest);
     }
 
-    /** Get a handle to all user interface elements */
+    /**
+     * Get a handle to all user interface elements
+     */
     private void findViews() {
         fromSpinner = (Spinner) findViewById(R.id.from_language);
         toSpinner = (Spinner) findViewById(R.id.to_language);
@@ -155,12 +173,15 @@ public class MainActivity extends Activity {
         SharedPreferences settings = getSharedPreferences(PREF, 0);
         Integer pref_from = settings.getInt(PREF_FROM, 0);
         Integer pref_to = settings.getInt(PREF_TO, 6);
-        if(! "".equals(pref_from)) {
+        if (!"".equals(pref_from)) {
             fromSpinner.setSelection(pref_from);
             toSpinner.setSelection(pref_to);
         }
     }
-    /** Define data source for the spinners */
+
+    /**
+     * Define data source for the spinners
+     */
     private void setAdapters() {
         // Spinner list comes from a resource,
         // Spinner user interface uses standard layouts
@@ -173,7 +194,9 @@ public class MainActivity extends Activity {
         toSpinner.setAdapter(adapter);
     }
 
-    /** Define switch language button*/
+    /**
+     * Define switch language button
+     */
     private void switchLanguage() {
         //switch language button
         int tmpTo = toSpinner.getSelectedItemPosition();
@@ -183,7 +206,9 @@ public class MainActivity extends Activity {
         queueUpdate(1000 /* milliseconds */);
     }
 
-    /** Setup user interface event handlers */
+    /**
+     * Setup user interface event handlers
+     */
     private void setListeners() {
         // Define event listeners
         textWatcher = new TextWatcher() {
@@ -191,10 +216,12 @@ public class MainActivity extends Activity {
                                           int count, int after) {
             /* Do nothing */
             }
+
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
                 queueUpdate(1000 /* milliseconds */);
             }
+
             public void afterTextChanged(Editable s) {
             /* Do nothing */
             }
@@ -204,6 +231,7 @@ public class MainActivity extends Activity {
                                        int position, long id) {
                 queueUpdate(200 /* milliseconds */);
             }
+
             public void onNothingSelected(AdapterView<?> parent) {
             /* Do nothing */
             }
@@ -231,8 +259,8 @@ public class MainActivity extends Activity {
                 String original = origText.getText().toString().trim();
 
                 // Cancel previous translation if there was one
-                if (transPending != null)
-                    transPending.cancel(true);
+                //if (transPending != null)
+                //    transPending.cancel(true);
 
                 // Take care of the easy case
                 if (original.length() == 0) {
@@ -243,25 +271,15 @@ public class MainActivity extends Activity {
 
                     // Begin translation now but don't wait for it
                     try {
-                        TranslateTask translateTask;
-                        if (fuzzyPreference) {
-                            translateTask = new TranslateTask(
-                                    MainActivity.this, // reference to activity
-                                    original, // original text
-                                    "", // from language (blank)
-                                    getLang(toSpinner) // to language
-                            );
-                        }
-                        else {
-                            translateTask = new TranslateTask(
-                                    MainActivity.this, // reference to activity
-                                    original, // original text
-                                    getLang(fromSpinner), // from language
-                                    getLang(toSpinner) // to language
-                            );
-                        }
+                        TranslateService translateTask;
+                        translateTask = new TranslateService(
+                                MainActivity.this, // reference to activity
+                                original, // original text
+                                getLang(fromSpinner), // from language
+                                getLang(toSpinner) // to language
+                        );
 
-                        transPending = transThread.submit(translateTask);
+                        //transPending = transThread.submit(translateTask);
                     } catch (RejectedExecutionException e) {
                         // Unable to start new task
                         transText.setText(R.string.translation_error);
@@ -271,14 +289,18 @@ public class MainActivity extends Activity {
         };
     }
 
-    /** Extract the language code from the current spinner item */
+    /**
+     * Extract the language code from the current spinner item
+     */
     private String getLang(Spinner spinner) {
         String result = langShortNames[spinner.getSelectedItemPosition()];
         Log.d(TAG, " getLang " + result);
         return result;
     }
 
-    /** Request an update to start after a short delay */
+    /**
+     * Request an update to start after a short delay
+     */
     private void queueUpdate(long delayMillis) {
         // Cancel previous update if it hasn't started yet
         guiThread.removeCallbacks(updateTask);
@@ -286,12 +308,16 @@ public class MainActivity extends Activity {
         guiThread.postDelayed(updateTask, delayMillis);
     }
 
-    /** Modify text on the screen (called from another thread) */
+    /**
+     * Modify text on the screen (called from another thread)
+     */
     public void setTranslated(String text) {
         guiSetText(transText, text);
     }
 
-    /** All changes to the GUI must be done in the GUI thread */
+    /**
+     * All changes to the GUI must be done in the GUI thread
+     */
     private void guiSetText(final TextView view, final String text) {
         guiThread.post(new Runnable() {
             public void run() {
@@ -312,8 +338,7 @@ public class MainActivity extends Activity {
             fromSpinner.setVisibility(View.GONE);
             fromText.setVisibility(View.GONE);
             //changeButton.setVisibility(View.GONE);
-        }
-        else {
+        } else {
             //fromSpinner.setVisibility(View.VISIBLE);
             //fromText.setVisibility(View.VISIBLE);
             //changeButton.setVisibility(View.VISIBLE);
@@ -349,12 +374,12 @@ public class MainActivity extends Activity {
                     + transText.getText().toString().replace(" ", "+"));
             Log.d(TAG, "bing uri=" + uri.toString());
             if (!transText.getText().equals("")) {
-                startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }
         }
     }
 
-    private void initActionBar(){
+    private void initActionBar() {
         //顯示 Up Button (位在 Logo 左手邊的按鈕圖示)
         getActionBar().setDisplayHomeAsUpEnabled(true);
         //打開 Up Button 的點擊功能
@@ -400,9 +425,9 @@ public class MainActivity extends Activity {
         mLsvDrawerMenu = (ListView) findViewById(R.id.lsv_drawer_menu);
         mLlvDrawerContent = (LinearLayout) findViewById(R.id.llv_left_drawer);
 
-        int[] iconImage = { android.R.drawable.ic_menu_preferences, android.R.drawable.ic_dialog_info };
+        int[] iconImage = {android.R.drawable.ic_menu_preferences, android.R.drawable.ic_dialog_info};
 
-        List<HashMap<String,String>> lstData = new ArrayList<HashMap<String,String>>();
+        List<HashMap<String, String>> lstData = new ArrayList<HashMap<String, String>>();
         for (int i = 0; i < iconImage.length; i++) {
             HashMap<String, String> mapValue = new HashMap<String, String>();
             mapValue.put("icon", Integer.toString(iconImage[i]));

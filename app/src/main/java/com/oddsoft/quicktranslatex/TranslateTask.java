@@ -13,9 +13,9 @@ import java.io.StringWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.Random;
 
 import android.util.Log;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -35,12 +35,28 @@ public class TranslateTask implements Runnable {
 	private static final String TAG = "TranslateTask";
 	private final MainActivity translate;
 	private final String original, from, to;
-	
+
+	private String client_secret;
+	private String client_id;
+
 	TranslateTask(MainActivity translate, String original, String from, String to) {
 		this.translate = translate;
 		this.original = original;
 		this.from = from;
 		this.to = to;
+
+		String[] aryClientSecret = {"aQpYdSsbH0hQZzj7KUEIwhZHnh4+NB5eMmMRkVoUW20="
+				,"OyQFY5PhpxZNGIJlekizA786BVhufZumkVGuqubzPpI="
+				,"gHaxgCWnUzhAtUuVXR5MKOJ2v+5cCAp7VlmmUN/NeFQ="};
+
+		String[] aryClientId = {"android-oddsoft-quicktranslatexd"
+				,"android-oddsoft-quicktranslatexd1"
+				,"android-oddsoft-quicktranslatepro"};
+
+		int index = new Random().nextInt(aryClientSecret.length);
+		client_secret = aryClientSecret[index];
+		client_id = aryClientId[index];
+
 	}
 	
 	public void run() {
@@ -71,11 +87,12 @@ public class TranslateTask implements Runnable {
 	private String doTranslate(String original, String from, String to) throws Exception {
 		String result = translate.getResources().getString(R.string.translation_error);
 		Log.d(TAG, "doTranslate(" + original + ", " + from + ", "	+ to + ")");
+		Log.d(TAG, client_secret);
 
 		// Construct content
 		String content = "grant_type=client_credentials";
-		content += "&client_id=android-oddsoft-quicktranslatepro";
-		content += "&client_secret=" + URLEncoder.encode("gHaxgCWnUzhAtUuVXR5MKOJ2v+5cCAp7VlmmUN/NeFQ=");
+		content += "&client_id="+client_id;
+		content += "&client_secret=" + URLEncoder.encode(client_secret);
 		content += "&scope=http://api.microsofttranslator.com";
 
 		String q = original;
@@ -155,7 +172,7 @@ public class TranslateTask implements Runnable {
 
 	     } catch (Exception e) {
 				Log.e(TAG, "IOException", e);
-			result = translate.getResources().getString(
+				result = translate.getResources().getString(
 					R.string.translation_interrupted);
 	   /*  } catch (InterruptedException e) {
 			Log.d(TAG, "InterruptedException", e);
