@@ -5,6 +5,7 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -166,6 +167,11 @@ public class MainActivity extends Activity {
         transText = (TextView) findViewById(R.id.translated_text);
         fromText = (TextView) findViewById(R.id.from_text);
         langShortNames = getResources().getStringArray(R.array.languages_values);
+
+        // Font
+        transText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Lato-light.ttf"));
+        origText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Lato-light.ttf"));
+
     }
 
     // Restore preferences

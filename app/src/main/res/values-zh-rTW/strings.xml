@@ -33,25 +33,4 @@
         <item>設定</item>
         <item>關於</item>
     </string-array>
-
-    <string name="license">Copyright (c) 2015 oddsoft (ccjeng@google.com)\n\nQuick Translate XD
-\nA lightweight language translation tool. Use Microsoft translate service to translate between language pairs.
-\n
-\nFeatures:
-\n- 43 language translation.
-\n- Provide From/To language switch function.
-\n- Provide Share function (you can share translated text to Twitter, Facebook, email, SMS..etc)
-\n- Search translated text into preferred search engine
-\n\nTo better improve this app, we use Google Analysis to collect user\'s activity anonymously.
-\n\n
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-</string>
-    <string name="license_intro"></string>
-
 </resources>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+
     <string name="app_name">Quick Translate XD</string>
     <string name="from_text">From:</string>
     <string name="to_text">To:</string>
@@ -33,11 +36,11 @@
         <item>About</item>
     </string-array>
 
-<string name="license">Copyright (c) 2015 oddsoft (ccjeng@google.com)\n\nQuick Translate XD
+<string name="license">Copyright (c) 2015 ccjeng@google.com\n\nQuick Translate XD
 \nA lightweight language translation tool. Use Microsoft translate service to translate between language pairs.
 \n
 \nFeatures:
-\n- 43 language translation.
+\n- 50+ language translation.
 \n- Provide From/To language switch function.
 \n- Provide Share function (you can share translated text to Twitter, Facebook, email, SMS..etc)
 \n- Search translated text into preferred search engine
