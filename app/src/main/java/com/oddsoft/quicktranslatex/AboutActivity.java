@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.oddsoft.quicktranslatex.app.Analytics;
+
 public class AboutActivity extends Activity {
 
 	@Override
@@ -13,6 +16,8 @@ public class AboutActivity extends Activity {
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
+		Analytics ga = new Analytics();
+		ga.trackerPage(this);
 	}
 
 	@Override
@@ -27,5 +32,16 @@ public class AboutActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	@Override
+	protected void onStop() {
+		super.onStop();
+		GoogleAnalytics.getInstance(this).reportActivityStop(this);
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		GoogleAnalytics.getInstance(this).reportActivityStart(this);
+	}
 }
 

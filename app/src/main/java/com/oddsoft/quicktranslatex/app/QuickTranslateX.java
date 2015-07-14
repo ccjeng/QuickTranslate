@@ -36,6 +36,9 @@ public class QuickTranslateX extends Application {
 
             GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
             analytics.getLogger().setLogLevel(Logger.LogLevel.VERBOSE);
+            if (APPDEBUG) {
+                analytics.getInstance(this).setDryRun(true);
+            }
             Tracker t = (trackerId == TrackerName.APP_TRACKER) ? analytics.newTracker(PROPERTY_ID)
                     : analytics.newTracker(R.xml.global_tracker);
             t.enableAdvertisingIdCollection(true);

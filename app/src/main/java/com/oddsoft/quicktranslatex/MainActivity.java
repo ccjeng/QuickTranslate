@@ -77,6 +77,8 @@ public class MainActivity extends Activity {
     // 記錄被選擇的選單指標用
     private int mCurrentMenuItemPosition = -1;
 
+    private Analytics ga;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,9 +94,8 @@ public class MainActivity extends Activity {
         restorePrefs();
         adView();
 
-        Analytics ga = new Analytics();
-        if (!QuickTranslateX.APPDEBUG)
-            ga.initTracker(this);
+        ga = new Analytics();
+        ga.trackerPage(this);
 
     }
 
@@ -131,15 +132,13 @@ public class MainActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (!QuickTranslateX.APPDEBUG)
-            GoogleAnalytics.getInstance(this).reportActivityStop(this);
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if (!QuickTranslateX.APPDEBUG)
-            GoogleAnalytics.getInstance(this).reportActivityStart(this);
+        GoogleAnalytics.getInstance(this).reportActivityStart(this);
         getPrefs();
     }
 
@@ -257,6 +256,7 @@ public class MainActivity extends Activity {
     private void initThreading() {
         guiThread = new Handler();
         transThread = Executors.newSingleThreadExecutor();
+        ga.trackEvent(this, "Button", "Language", fromSpinner + " - " + toSpinner, 0);
 
         // This task does a translation and updates the screen
         updateTask = new Runnable() {
@@ -512,16 +512,20 @@ public class MainActivity extends Activity {
 
         switch (item.getItemId()) {
             case R.id.clear_button:
+                ga.trackEvent(this, "Click", "Button", "Clean", 0);
                 origText.setText("");
                 transText.setText("");
                 break;
             case R.id.change_button:
+                ga.trackEvent(this, "Click", "Button", "Change", 0);
                 switchLanguage();
                 break;
             case R.id.search_button:
+                ga.trackEvent(this, "Click", "Button", "Search", 0);
                 search();
                 break;
             case R.id.share_button:
+                ga.trackEvent(this, "Click", "Button", "Share", 0);
                 share();
                 break;
         }
