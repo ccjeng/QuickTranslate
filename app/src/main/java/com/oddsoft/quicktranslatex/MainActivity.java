@@ -246,6 +246,7 @@ public class MainActivity extends Activity {
         origText.addTextChangedListener(textWatcher);
         fromSpinner.setOnItemSelectedListener(itemListener);
         toSpinner.setOnItemSelectedListener(itemListener);
+
     }
 
     /**
@@ -256,7 +257,6 @@ public class MainActivity extends Activity {
     private void initThreading() {
         guiThread = new Handler();
         transThread = Executors.newSingleThreadExecutor();
-        ga.trackEvent(this, "Button", "Language", fromSpinner + " - " + toSpinner, 0);
 
         // This task does a translation and updates the screen
         updateTask = new Runnable() {
@@ -277,6 +277,9 @@ public class MainActivity extends Activity {
 
                     // Begin translation now but don't wait for it
                     try {
+
+                        ga.trackEvent(MainActivity.this, "Button", "Language", getLang(fromSpinner) + " - " + getLang(toSpinner), 0);
+
                         TranslateService translateTask;
                         translateTask = new TranslateService(
                                 MainActivity.this, // reference to activity
