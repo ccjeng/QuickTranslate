@@ -6,8 +6,8 @@ android {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 14
         targetSdkVersion 22
-        versionCode 16
-        versionName '3.6.1'
+        versionCode 17
+        versionName '3.6.2'
     }
     buildTypes {
         release {
