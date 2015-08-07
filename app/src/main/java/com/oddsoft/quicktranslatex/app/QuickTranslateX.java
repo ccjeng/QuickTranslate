@@ -15,13 +15,29 @@ import java.util.HashMap;
 public class QuickTranslateX extends Application {
 
     // Debugging switch
-    public static final boolean APPDEBUG = false;
+    public static final boolean APPDEBUG = true;
     public static final String TAG = QuickTranslateX.class.getSimpleName();
-
 
     @Override
     public void onCreate() {
         super.onCreate();
+    }
+
+    private static Boolean mAuthState;
+
+    public static Boolean getAuthState(){
+        return mAuthState;
+    }
+    public static void setAuthState(Boolean s){
+        mAuthState = s;
+    }
+
+    private static String mAuthToken;
+    public static String getAuthToken(){
+        return mAuthToken;
+    }
+    public static void setAuthToken(String s){
+        mAuthToken = s;
     }
 
     // The following line should be changed to include the correct property id.

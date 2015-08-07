@@ -32,6 +32,7 @@ import android.widget.TextView;
 import com.google.android.gms.ads.*;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.oddsoft.quicktranslatex.app.Analytics;
+import com.oddsoft.quicktranslatex.app.OAuth;
 import com.oddsoft.quicktranslatex.app.QuickTranslateX;
 
 import java.util.ArrayList;
@@ -67,8 +68,6 @@ public class MainActivity extends Activity {
     private Future<?> transPending;
     private AdView adView;
 
-    final Handler updateHandler = new Handler();
-
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private LinearLayout mLlvDrawerContent;
@@ -78,6 +77,7 @@ public class MainActivity extends Activity {
     private int mCurrentMenuItemPosition = -1;
 
     private Analytics ga;
+    private String mAuthToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,10 +92,12 @@ public class MainActivity extends Activity {
         setAdapters();
         setListeners();
         restorePrefs();
+        initAuth();
         adView();
 
         ga = new Analytics();
         ga.trackerPage(this);
+
 
     }
 
@@ -182,6 +184,17 @@ public class MainActivity extends Activity {
             fromSpinner.setSelection(pref_from);
             toSpinner.setSelection(pref_to);
         }
+    }
+
+
+    private void initAuth() {
+        //oAuth
+        OAuth mOAuth = new OAuth();
+        mAuthToken = mOAuth.getToken();
+
+        QuickTranslateX.setAuthState(true);
+        QuickTranslateX.setAuthToken(mAuthToken);
+
     }
 
     /**
@@ -303,7 +316,9 @@ public class MainActivity extends Activity {
      */
     private String getLang(Spinner spinner) {
         String result = langShortNames[spinner.getSelectedItemPosition()];
-        Log.d(TAG, " getLang " + result);
+        if (QuickTranslateX.APPDEBUG) {
+            Log.d(TAG, " getLang " + result);
+        }
         return result;
     }
 
@@ -331,7 +346,9 @@ public class MainActivity extends Activity {
         guiThread.post(new Runnable() {
             public void run() {
                 view.setText(text);
-                Log.d(TAG, " guiSetText " + text);
+                if (QuickTranslateX.APPDEBUG) {
+                    Log.d(TAG, " guiSetText " + text);
+                }
             }
         });
     }

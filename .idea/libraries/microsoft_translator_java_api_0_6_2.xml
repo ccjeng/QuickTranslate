@@ -4,8 +4,6 @@
       <root url="jar://$PROJECT_DIR$/app/libs/microsoft-translator-java-api-0.6.2.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.memetix/microsoft-translator-java-api/0.6.2/bca7a6e1ccaba31842a1da13128bc0c303355295/microsoft-translator-java-api-0.6.2-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>
