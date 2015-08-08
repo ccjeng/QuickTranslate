@@ -24,7 +24,6 @@ public class QuickTranslateX extends Application {
     }
 
     private static Boolean mAuthState;
-
     public static Boolean getAuthState(){
         return mAuthState;
     }

@@ -170,8 +170,8 @@ public class MainActivity extends Activity {
         langShortNames = getResources().getStringArray(R.array.languages_values);
 
         // Font
-        transText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Lato-light.ttf"));
-        origText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Lato-light.ttf"));
+        transText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Lato-light.ttf"), Typeface.BOLD);
+        origText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Lato-light.ttf"), Typeface.BOLD);
 
     }
 
