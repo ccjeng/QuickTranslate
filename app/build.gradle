@@ -23,5 +23,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.google.android.gms:play-services:7.0.0'
     compile project(':volley')
+    compile 'com.jakewharton:butterknife:7.0.1'
 }
 

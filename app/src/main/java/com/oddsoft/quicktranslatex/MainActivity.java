@@ -21,7 +21,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -43,6 +42,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.RejectedExecutionException;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends Activity {
 
     private static final String TAG = "QuickTranslate";
@@ -50,11 +52,21 @@ public class MainActivity extends Activity {
     public static final String PREF_FROM = "PREF_From";
     public static final String PREF_TO = "PREF_To";
 
-    private Spinner fromSpinner;
-    private Spinner toSpinner;
-    private EditText origText;
-    private TextView transText;
-    private TextView fromText;
+    @Bind(R.id.from_language)
+    Spinner fromSpinner;
+
+    @Bind(R.id.to_language)
+    Spinner toSpinner;
+
+    @Bind(R.id.original_text)
+    EditText origText;
+
+    @Bind(R.id.translated_text)
+    TextView transText;
+
+    @Bind(R.id.from_text)
+    TextView fromText;
+
     private boolean fuzzyPreference;
     private String searchPreference;
 
@@ -83,6 +95,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         initThreading();
         findViews();
@@ -162,11 +175,12 @@ public class MainActivity extends Activity {
      * Get a handle to all user interface elements
      */
     private void findViews() {
-        fromSpinner = (Spinner) findViewById(R.id.from_language);
-        toSpinner = (Spinner) findViewById(R.id.to_language);
-        origText = (EditText) findViewById(R.id.original_text);
-        transText = (TextView) findViewById(R.id.translated_text);
-        fromText = (TextView) findViewById(R.id.from_text);
+        //fromSpinner = (Spinner) findViewById(R.id.from_language);
+        //toSpinner = (Spinner) findViewById(R.id.to_language);
+        //origText = (EditText) findViewById(R.id.original_text);
+        //transText = (TextView) findViewById(R.id.translated_text);
+        //fromText = (TextView) findViewById(R.id.from_text);
+
         langShortNames = getResources().getStringArray(R.array.languages_values);
 
         // Font
