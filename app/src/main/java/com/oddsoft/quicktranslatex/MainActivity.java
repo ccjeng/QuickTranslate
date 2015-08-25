@@ -5,6 +5,7 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Handler;
@@ -30,9 +31,13 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.*;
 import com.google.android.gms.analytics.GoogleAnalytics;
+import com.mikepenz.google_material_typeface_library.GoogleMaterial;
+import com.mikepenz.iconics.IconicsDrawable;
 import com.oddsoft.quicktranslatex.app.Analytics;
 import com.oddsoft.quicktranslatex.app.OAuth;
 import com.oddsoft.quicktranslatex.app.QuickTranslateX;
+import com.oddsoft.quicktranslatex.drawer.DrawerItem;
+import com.oddsoft.quicktranslatex.drawer.DrawerItemAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,20 +57,11 @@ public class MainActivity extends Activity {
     public static final String PREF_FROM = "PREF_From";
     public static final String PREF_TO = "PREF_To";
 
-    @Bind(R.id.from_language)
-    Spinner fromSpinner;
-
-    @Bind(R.id.to_language)
-    Spinner toSpinner;
-
-    @Bind(R.id.original_text)
-    EditText origText;
-
-    @Bind(R.id.translated_text)
-    TextView transText;
-
-    @Bind(R.id.from_text)
-    TextView fromText;
+    @Bind(R.id.from_language) Spinner fromSpinner;
+    @Bind(R.id.to_language) Spinner toSpinner;
+    @Bind(R.id.original_text) EditText origText;
+    @Bind(R.id.translated_text) TextView transText;
+    @Bind(R.id.from_text) TextView fromText;
 
     private boolean fuzzyPreference;
     private String searchPreference;
@@ -80,10 +76,10 @@ public class MainActivity extends Activity {
     private Future<?> transPending;
     private AdView adView;
 
-    private DrawerLayout mDrawerLayout;
+    @Bind(R.id.drw_layout) DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-    private LinearLayout mLlvDrawerContent;
-    private ListView mLsvDrawerMenu;
+    @Bind(R.id.llv_left_drawer) LinearLayout mLlvDrawerContent;
+    @Bind(R.id.lsv_drawer_menu) ListView mLsvDrawerMenu;
 
     // 記錄被選擇的選單指標用
     private int mCurrentMenuItemPosition = -1;
@@ -175,11 +171,6 @@ public class MainActivity extends Activity {
      * Get a handle to all user interface elements
      */
     private void findViews() {
-        //fromSpinner = (Spinner) findViewById(R.id.from_language);
-        //toSpinner = (Spinner) findViewById(R.id.to_language);
-        //origText = (EditText) findViewById(R.id.original_text);
-        //transText = (TextView) findViewById(R.id.translated_text);
-        //fromText = (TextView) findViewById(R.id.from_text);
 
         langShortNames = getResources().getStringArray(R.array.languages_values);
 
@@ -258,6 +249,7 @@ public class MainActivity extends Activity {
             /* Do nothing */
             }
         };
+
         itemListener = new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View v,
                                        int position, long id) {
@@ -427,7 +419,7 @@ public class MainActivity extends Activity {
     }
 
     private void initDrawer() {
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drw_layout);
+        //mDrawerLayout = (DrawerLayout) findViewById(R.id.drw_layout);
         // 設定 Drawer 的影子
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 
@@ -462,9 +454,10 @@ public class MainActivity extends Activity {
         String[] drawer_menu = this.getResources().getStringArray(R.array.drawer_menu);
 
         // 定義新宣告的兩個物件：選項清單的 ListView 以及 Drawer內容的 LinearLayou
-        mLsvDrawerMenu = (ListView) findViewById(R.id.lsv_drawer_menu);
-        mLlvDrawerContent = (LinearLayout) findViewById(R.id.llv_left_drawer);
+        //mLsvDrawerMenu = (ListView) findViewById(R.id.lsv_drawer_menu);
+        //mLlvDrawerContent = (LinearLayout) findViewById(R.id.llv_left_drawer);
 
+        /*
         int[] iconImage = {android.R.drawable.ic_menu_preferences, android.R.drawable.ic_dialog_info};
 
         List<HashMap<String, String>> lstData = new ArrayList<HashMap<String, String>>();
@@ -479,7 +472,23 @@ public class MainActivity extends Activity {
         SimpleAdapter adapter = new SimpleAdapter(this, lstData
                 , R.layout.drawer_item
                 , new String[]{"icon", "title"}
-                , new int[]{R.id.rowIcon, R.id.rowText});
+                , new int[]{R.id.rowIcon, R.id.rowText});*/
+
+        DrawerItem[] drawerItem = new DrawerItem[2];
+
+        drawerItem[0] = new DrawerItem(new IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_build)
+                .color(Color.GRAY)
+                .sizeDp(24),
+                drawer_menu[0]);
+        drawerItem[1] = new DrawerItem(new IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_info)
+                .color(Color.GRAY)
+                .sizeDp(24),
+                drawer_menu[1]);
+
+        DrawerItemAdapter adapter = new DrawerItemAdapter(this, R.layout.drawer_item, drawerItem);
+
         mLsvDrawerMenu.setAdapter(adapter);
 
         // 當清單選項的子物件被點擊時要做的動作
@@ -531,6 +540,19 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem menuItem1 = menu.findItem(R.id.clear_button);
+        menuItem1.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_delete).actionBarSize().color(Color.WHITE));
+
+        MenuItem menuItem2 = menu.findItem(R.id.change_button);
+        menuItem2.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_loop).actionBarSize().color(Color.WHITE));
+
+        MenuItem menuItem3 = menu.findItem(R.id.search_button);
+        menuItem3.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_search).actionBarSize().color(Color.WHITE));
+
+        MenuItem menuItem4 = menu.findItem(R.id.share_button);
+        menuItem4.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_share).actionBarSize().color(Color.WHITE));
+
         return true;
     }
 

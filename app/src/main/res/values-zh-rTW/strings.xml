@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">快速翻譯XD</string>
+    <string name="app_name">快速翻譯</string>
     <string name="from_text">自:</string>
     <string name="to_text">至:</string>
     <string name="original_hint">輸入文字</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">クイック翻訳XD</string>
+    <string name="app_name">クイック翻訳</string>
     <string name="from_text">から:</string>
     <string name="to_text">に:</string>
     <string name="original_hint">入力したテキストが翻訳する</string>

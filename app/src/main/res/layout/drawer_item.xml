@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/rowIcon"
         android:paddingLeft="16dp"
+        android:paddingTop="4dp"
         android:src="@drawable/icon"/>
 
     <TextView

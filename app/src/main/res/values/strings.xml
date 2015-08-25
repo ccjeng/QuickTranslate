@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation">
 
-    <string name="app_name">Quick Translate XD</string>
+    <string name="app_name">Quick Translate</string>
     <string name="from_text">From:</string>
     <string name="to_text">To:</string>
     <string name="original_hint">Input text to translate</string>
@@ -36,7 +36,7 @@
         <item>About</item>
     </string-array>
 
-<string name="license">Copyright (c) 2015 ccjeng@google.com\n\nQuick Translate XD
+<string name="license">Copyright (c) 2015 ccjeng@google.com\n\nQuick Translate
 \nA lightweight language translation tool. Use Microsoft translate service to translate between language pairs.
 \n
 \nFeatures:
