@@ -1,6 +1,5 @@
 package com.oddsoft.quicktranslatex;
 
-import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,7 +27,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -42,9 +40,6 @@ import com.oddsoft.quicktranslatex.app.QuickTranslateX;
 import com.oddsoft.quicktranslatex.drawer.DrawerItem;
 import com.oddsoft.quicktranslatex.drawer.DrawerItemAdapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -67,9 +62,7 @@ public class MainActivity extends ActionBarActivity {
     @Bind(R.id.from_text) TextView fromText;
 
     private ActionBar actionbar;
-
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
+    @Bind(R.id.toolbar) Toolbar toolbar;
 
     private boolean fuzzyPreference;
     private String searchPreference;

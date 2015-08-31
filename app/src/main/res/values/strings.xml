@@ -46,6 +46,11 @@
 \n- Search translated text into preferred search engine
 \n\nTo better improve this app, we use Google Analysis to collect user\'s activity anonymously.
 \n\n
+    \nFont:
+    \nRoboto-Light\n\n
+    \nLibrary:
+    \nAndroid Iconics https://github.com/mikepenz/Android-Iconics/blob/develop/LICENSE\n\n
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE

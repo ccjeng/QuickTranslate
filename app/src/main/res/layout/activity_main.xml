@@ -26,7 +26,6 @@
             android:orientation="horizontal"
             android:layout_below="@id/toolbar">
 
-
             <com.google.android.gms.ads.AdView
                 android:id="@+id/adView"
                 android:layout_width="wrap_content"
@@ -45,7 +44,6 @@
             android:stretchColumns="1">
 
             <TableRow>
-
                 <TextView
                     android:id="@+id/from_text"
                     android:text="@string/from_text" />
@@ -80,7 +78,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#FF0000" />
 
-            <EditText
+            <com.oddsoft.quicktranslatex.app.ClearableEditText
                 android:id="@+id/original_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
