@@ -1,22 +1,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.oddsoft.quicktranslatex.MainActivity" >
 
     <item android:id="@+id/clear_button"
         android:title="@string/clear_title"
         android:orderInCategory="100"
-        android:showAsAction="always"/>
+        app:showAsAction="always"/>
     <item android:id="@+id/change_button"
         android:title="@string/change_title"
         android:orderInCategory="100"
-        android:showAsAction="always"/>
+        app:showAsAction="always"/>
     <item android:id="@+id/search_button"
         android:title="@string/search_title"
         android:orderInCategory="100"
-        android:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom"/>
     <item android:id="@+id/share_button"
         android:title="@string/share_title"
         android:orderInCategory="100"
-        android:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom"/>
 
 </menu>

@@ -14,6 +14,9 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -50,7 +53,7 @@ import java.util.concurrent.RejectedExecutionException;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
 
     private static final String TAG = "QuickTranslate";
     public static final String PREF = "TRANS";
@@ -62,6 +65,11 @@ public class MainActivity extends Activity {
     @Bind(R.id.original_text) EditText origText;
     @Bind(R.id.translated_text) TextView transText;
     @Bind(R.id.from_text) TextView fromText;
+
+    private ActionBar actionbar;
+
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
 
     private boolean fuzzyPreference;
     private String searchPreference;
@@ -175,8 +183,8 @@ public class MainActivity extends Activity {
         langShortNames = getResources().getStringArray(R.array.languages_values);
 
         // Font
-        transText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Lato-light.ttf"), Typeface.BOLD);
-        origText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Lato-light.ttf"), Typeface.BOLD);
+        transText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf"));
+        origText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf"));
 
     }
 
@@ -412,14 +420,16 @@ public class MainActivity extends Activity {
     }
 
     private void initActionBar() {
-        //顯示 Up Button (位在 Logo 左手邊的按鈕圖示)
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        //打開 Up Button 的點擊功能
-        getActionBar().setHomeButtonEnabled(true);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(new IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_menu)
+                .color(Color.WHITE)
+                .actionBarSize());
+
+        actionbar = getSupportActionBar();
     }
 
     private void initDrawer() {
-        //mDrawerLayout = (DrawerLayout) findViewById(R.id.drw_layout);
         // 設定 Drawer 的影子
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 
@@ -434,14 +444,14 @@ public class MainActivity extends Activity {
             @Override
             public void onDrawerOpened(View drawerView) {
                 // 將 Title 設定為自定義的文字
-                getActionBar().setTitle(R.string.app_name);
+                actionbar.setTitle(R.string.app_name);
             }
 
             //被關上後要做的事情
             @Override
             public void onDrawerClosed(View drawerView) {
                 // 將 Title 設定回 APP 的名稱
-                getActionBar().setTitle(R.string.app_name);
+                actionbar.setTitle(R.string.app_name);
             }
         };
 
@@ -452,27 +462,6 @@ public class MainActivity extends Activity {
     private void initDrawerList() {
 
         String[] drawer_menu = this.getResources().getStringArray(R.array.drawer_menu);
-
-        // 定義新宣告的兩個物件：選項清單的 ListView 以及 Drawer內容的 LinearLayou
-        //mLsvDrawerMenu = (ListView) findViewById(R.id.lsv_drawer_menu);
-        //mLlvDrawerContent = (LinearLayout) findViewById(R.id.llv_left_drawer);
-
-        /*
-        int[] iconImage = {android.R.drawable.ic_menu_preferences, android.R.drawable.ic_dialog_info};
-
-        List<HashMap<String, String>> lstData = new ArrayList<HashMap<String, String>>();
-        for (int i = 0; i < iconImage.length; i++) {
-            HashMap<String, String> mapValue = new HashMap<String, String>();
-            mapValue.put("icon", Integer.toString(iconImage[i]));
-            mapValue.put("title", drawer_menu[i]);
-            lstData.add(mapValue);
-        }
-
-
-        SimpleAdapter adapter = new SimpleAdapter(this, lstData
-                , R.layout.drawer_item
-                , new String[]{"icon", "title"}
-                , new int[]{R.id.rowIcon, R.id.rowText});*/
 
         DrawerItem[] drawerItem = new DrawerItem[2];
 
