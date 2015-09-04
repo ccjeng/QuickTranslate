@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion "21.1.2"
     defaultConfig {
         applicationId "com.oddsoft.quicktranslatex"
@@ -22,10 +22,13 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.google.android.gms:play-services:7.8.0'
-    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.android.support:appcompat-v7:23'
     compile project(':volley')
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.mikepenz:iconics-core:1.7.3@aar'
     compile 'com.mikepenz:google-material-typeface:1.2.0.1@aar'
+    compile('com.mikepenz:aboutlibraries:5.2.1@aar') {
+        transitive = true
+    }
 }
 

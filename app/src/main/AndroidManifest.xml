@@ -22,7 +22,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Prefs" android:label="@string/preference_title"/>
-        <activity android:name=".AboutActivity" android:label="@string/about_title"/>
         <activity android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
