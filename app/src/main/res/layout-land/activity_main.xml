@@ -69,7 +69,7 @@
                 android:textColor="#FF0000"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.oddsoft.quicktranslatex.app.ClearableEditText
                 android:id="@+id/original_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
