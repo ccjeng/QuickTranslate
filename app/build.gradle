@@ -6,8 +6,8 @@ android {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 14
         targetSdkVersion 22
-        versionCode 20
-        versionName '3.7.2.090615QT'
+        versionCode 21
+        versionName '3.7.3.102815QT'
     }
     buildTypes {
         release {
@@ -22,7 +22,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.google.android.gms:play-services:7.8.0'
-    compile 'com.android.support:appcompat-v7:23'
+    compile 'com.android.support:appcompat-v7:23.1.0'
     compile project(':volley')
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.mikepenz:iconics-core:1.7.3@aar'
