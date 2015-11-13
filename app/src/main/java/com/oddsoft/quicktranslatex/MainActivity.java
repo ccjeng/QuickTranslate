@@ -162,7 +162,7 @@ public class MainActivity extends ActionBarActivity {
         if (QuickTranslateX.APPDEBUG) {
             adRequest = new AdRequest.Builder()
                     .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // 仿真器
-                    .addTestDevice("7710C21FF2537758BF3F80963477D68E") // 我的 Galaxy Nexus 測試手機
+                    .addTestDevice("DF9E888CAA233DE54A7FD15B3B1A1522") // 我的 Galaxy Nexus 測試手機
                     .build();
         } else {
             adRequest = new AdRequest.Builder().build();
@@ -196,13 +196,7 @@ public class MainActivity extends ActionBarActivity {
 
 
     private void initAuth() {
-        //oAuth
-        OAuth mOAuth = new OAuth();
-        mAuthToken = mOAuth.getToken();
-
-        QuickTranslateX.setAuthState(true);
-        QuickTranslateX.setAuthToken(mAuthToken);
-
+        new OAuth().execute();
     }
 
     /**
@@ -304,10 +298,10 @@ public class MainActivity extends ActionBarActivity {
 
                         TranslateService translateTask;
                         translateTask = new TranslateService(
-                                MainActivity.this, // reference to activity
-                                original, // original text
-                                getLang(fromSpinner), // from language
-                                getLang(toSpinner) // to language
+                                MainActivity.this,
+                                original,
+                                getLang(fromSpinner),
+                                getLang(toSpinner)
                         );
 
                         //transPending = transThread.submit(translateTask);

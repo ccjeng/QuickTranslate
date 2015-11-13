@@ -20,7 +20,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 public class TranslateService {
-    private static final String TAG = "TranslateTask";
+    private static final String TAG = "TranslateService";
     private final MainActivity translate;
     private final String original, from, to;
 
@@ -76,11 +76,11 @@ public class TranslateService {
             } else {
                 //regenerate token
                 Log.d(TAG, "regenerate token");
-                OAuth oAuth = new OAuth();
-                authToken = oAuth.getToken();
+
+                new OAuth().execute();
                 isTokenValid = true;
-                QuickTranslateX.setAuthState(true);
-                QuickTranslateX.setAuthToken(authToken);
+                authToken = QuickTranslateX.getAuthToken();
+                isTokenValid = QuickTranslateX.getAuthState();
             }
 
         } catch (Exception e) {
