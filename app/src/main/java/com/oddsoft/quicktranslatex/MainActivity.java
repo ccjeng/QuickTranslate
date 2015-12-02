@@ -66,7 +66,7 @@ public class MainActivity extends ActionBarActivity {
     private ActionBar actionbar;
     @Bind(R.id.toolbar) Toolbar toolbar;
 
-    private boolean fuzzyPreference;
+    //private boolean fuzzyPreference;
     private String searchPreference;
 
     private TextWatcher textWatcher;
@@ -360,7 +360,7 @@ public class MainActivity extends ActionBarActivity {
     private void getPrefs() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         //fuzzyPreference = prefs.getBoolean("fuzzy", false);
-        fuzzyPreference = false;
+        //fuzzyPreference = false;
         searchPreference = prefs.getString("search", "Google");
 
         if (prefs.getBoolean("fuzzy", false)) {
@@ -413,7 +413,7 @@ public class MainActivity extends ActionBarActivity {
         toolbar.setNavigationIcon(new IconicsDrawable(this)
                 .icon(GoogleMaterial.Icon.gmd_menu)
                 .color(Color.WHITE)
-                .actionBarSize());
+                .actionBar());
 
         actionbar = getSupportActionBar();
     }
@@ -530,16 +530,16 @@ public class MainActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
         MenuItem menuItem1 = menu.findItem(R.id.clear_button);
-        menuItem1.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_delete).actionBarSize().color(Color.WHITE));
+        menuItem1.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_delete).actionBar().color(Color.WHITE));
 
         MenuItem menuItem2 = menu.findItem(R.id.change_button);
-        menuItem2.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_loop).actionBarSize().color(Color.WHITE));
+        menuItem2.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_loop).actionBar().color(Color.WHITE));
 
         MenuItem menuItem3 = menu.findItem(R.id.search_button);
-        menuItem3.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_search).actionBarSize().color(Color.WHITE));
+        menuItem3.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_search).actionBar().color(Color.WHITE));
 
         MenuItem menuItem4 = menu.findItem(R.id.share_button);
-        menuItem4.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_share).actionBarSize().color(Color.WHITE));
+        menuItem4.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_share).actionBar().color(Color.WHITE));
 
         return true;
     }

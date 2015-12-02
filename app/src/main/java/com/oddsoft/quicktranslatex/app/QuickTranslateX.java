@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class QuickTranslateX extends Application {
 
     // Debugging switch
-    public static final boolean APPDEBUG = true;
+    public static final boolean APPDEBUG = false;
     public static final String TAG = QuickTranslateX.class.getSimpleName();
 
     @Override
@@ -23,7 +23,7 @@ public class QuickTranslateX extends Application {
         super.onCreate();
     }
 
-    private static Boolean mAuthState;
+    private static Boolean mAuthState = false;
     public static Boolean getAuthState(){
         return mAuthState;
     }
@@ -31,7 +31,7 @@ public class QuickTranslateX extends Application {
         mAuthState = s;
     }
 
-    private static String mAuthToken;
+    private static String mAuthToken = "";
     public static String getAuthToken(){
         return mAuthToken;
     }
