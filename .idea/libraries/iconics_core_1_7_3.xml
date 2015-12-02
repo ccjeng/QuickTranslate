@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="iconics-core-1.7.3">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mikepenz/iconics-core/1.7.3/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mikepenz/iconics-core/1.7.3/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mikepenz/iconics-core/1.7.3/res" />
     </CLASSES>
     <JAVADOC />
