@@ -4,10 +4,10 @@ android {
     buildToolsVersion "21.1.2"
     defaultConfig {
         applicationId "com.oddsoft.quicktranslatex"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 22
-        versionCode 23
-        versionName '3.8.4.120215QT'
+        versionCode 24
+        versionName '3.9.0.120415QT'
     }
     buildTypes {
         release {
@@ -32,5 +32,13 @@ dependencies {
     compile('com.mikepenz:aboutlibraries:5.2.1@aar') {
         transitive = true
     }
+    compile('com.mopub:mopub-sdk:4.1.0@aar') {
+        transitive = true
+    }
+    compile files('src/main/libs/AdSdk_6.0.8.jar')
+    compile files('src/main/libs/mobfoxmediationadapter.jar')
+    compile files('src/main/libs/libAdapterSDKMoPub.jar')
+    compile 'com.facebook.android:facebook-android-sdk:4.6.0'
+    compile files('src/main/libs/FacebookAdapter.jar')
 }
 
