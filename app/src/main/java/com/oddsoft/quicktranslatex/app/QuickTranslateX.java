@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class QuickTranslateX extends Application {
 
     // Debugging switch
-    public static final boolean APPDEBUG = false;
+    public static final boolean APPDEBUG = true;
     public static final String TAG = QuickTranslateX.class.getSimpleName();
 
     @Override
