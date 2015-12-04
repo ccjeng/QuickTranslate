@@ -35,7 +35,7 @@ dependencies {
     compile('com.mopub:mopub-sdk:4.1.0@aar') {
         transitive = true
     }
-    compile files('src/main/libs/AdSdk_6.0.8.jar')
+    compile files('src/main/libs/AdSdk_7.0.11.jar')
     compile files('src/main/libs/mobfoxmediationadapter.jar')
     compile files('src/main/libs/libAdapterSDKMoPub.jar')
     compile files('src/main/libs/AudienceNetwork.jar')
