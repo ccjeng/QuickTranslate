@@ -38,7 +38,7 @@ dependencies {
     compile files('src/main/libs/AdSdk_6.0.8.jar')
     compile files('src/main/libs/mobfoxmediationadapter.jar')
     compile files('src/main/libs/libAdapterSDKMoPub.jar')
-    compile 'com.facebook.android:facebook-android-sdk:4.6.0'
+    compile files('src/main/libs/AudienceNetwork.jar')
     compile files('src/main/libs/FacebookAdapter.jar')
 }
 
