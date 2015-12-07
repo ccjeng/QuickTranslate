@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="AdSdk_7.0.11">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/src/main/libs/AdSdk_7.0.11.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

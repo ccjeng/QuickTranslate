@@ -6,8 +6,8 @@ android {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 24
-        versionName '3.9.0.120415QT'
+        versionCode 25
+        versionName '3.9.1.120715QT'
     }
     buildTypes {
         release {
@@ -35,8 +35,6 @@ dependencies {
     compile('com.mopub:mopub-sdk:4.1.0@aar') {
         transitive = true
     }
-    compile files('src/main/libs/AdSdk_7.0.11.jar')
-    compile files('src/main/libs/mobfoxmediationadapter.jar')
     compile files('src/main/libs/libAdapterSDKMoPub.jar')
     compile files('src/main/libs/AudienceNetwork.jar')
     compile files('src/main/libs/FacebookAdapter.jar')
