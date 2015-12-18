@@ -81,7 +81,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.2.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mikepenz/google-material-typeface/1.2.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mikepenz/iconics-core/1.7.3/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mopub/mopub-sdk/4.1.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mopub/mopub-sdk/4.3.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
@@ -103,7 +103,7 @@
     <orderEntry type="library" exported="" name="AudienceNetwork" level="project" />
     <orderEntry type="library" exported="" name="libAdapterSDKMoPub" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-23.0.0" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-4.1.0" level="project" />
+    <orderEntry type="library" exported="" name="mopub-sdk-4.3.0" level="project" />
     <orderEntry type="library" exported="" name="design-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="iconics-core-1.7.3" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.1.1" level="project" />

@@ -36,7 +36,7 @@
         <activity android:name="com.mopub.common.MoPubBrowser" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
 
-        <!-- MobFox -->
+        <!-- MobFox
         <activity
             android:name="com.adsdk.sdk.banner.InAppWebView"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
@@ -47,7 +47,7 @@
         <activity
             android:name="com.adsdk.sdk.mraid.MraidBrowser"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-
+        -->
         <service android:name="com.google.android.gms.analytics.AnalyticsService"
              android:enabled="true"
              android:exported="false"/>    

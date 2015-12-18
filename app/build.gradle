@@ -32,7 +32,7 @@ dependencies {
     compile('com.mikepenz:aboutlibraries:5.2.1@aar') {
         transitive = true
     }
-    compile('com.mopub:mopub-sdk:4.1.0@aar') {
+    compile('com.mopub:mopub-sdk:4.3.0@aar') {
         transitive = true
     }
     compile files('src/main/libs/libAdapterSDKMoPub.jar')
