@@ -33,4 +33,5 @@
         <item>設定</item>
         <item>關於</item>
     </string-array>
+    <string name="changelog_title">更新記錄</string>
 </resources>

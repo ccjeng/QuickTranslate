@@ -1,11 +1,11 @@
-package com.oddsoft.quicktranslatex.app;
+package com.oddsoft.quicktranslatex;
 
 import android.app.Application;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Logger;
 import com.google.android.gms.analytics.Tracker;
-import com.oddsoft.quicktranslatex.R;
+import com.parse.Parse;
 
 import java.util.HashMap;
 
@@ -17,10 +17,14 @@ public class QuickTranslateX extends Application {
     // Debugging switch
     public static final boolean APPDEBUG = true;
     public static final String TAG = QuickTranslateX.class.getSimpleName();
+    //Parse
+    private static final String PARSE_APPLICATION_ID = "qW64sEj83siCgiwUrFGEcxUzhlMA2YU5Zc75I8mq";
+    private static final String PARSE_CLIENT_KEY = "LU3xFlX46XaIl2JKba7HlmclWv0q1tbxQ5mLMlna";
 
     @Override
     public void onCreate() {
         super.onCreate();
+        Parse.initialize(this, PARSE_APPLICATION_ID, PARSE_CLIENT_KEY);
     }
 
     private static Boolean mAuthState = false;

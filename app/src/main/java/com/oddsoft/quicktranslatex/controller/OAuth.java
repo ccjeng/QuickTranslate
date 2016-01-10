@@ -1,7 +1,9 @@
-package com.oddsoft.quicktranslatex.app;
+package com.oddsoft.quicktranslatex.controller;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.oddsoft.quicktranslatex.QuickTranslateX;
 
 import org.json.JSONObject;
 
@@ -36,6 +38,16 @@ public class OAuth extends AsyncTask<String, Void, String> {
         String client_secret = aryClientSecret[index];
         String client_id = aryClientId[index];
 
+
+
+
+        /*
+        Key k = new Key();
+        k.getKeyList();
+
+        String client_secret = k.getClientSecure();
+        String client_id = k.getClientID();
+*/
         Log.d(TAG, "client_secret = " + client_secret);
         Log.d(TAG, "client_id = " + client_id);
 

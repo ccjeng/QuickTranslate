@@ -1,9 +1,10 @@
-package com.oddsoft.quicktranslatex.app;
+package com.oddsoft.quicktranslatex.utils;
 
 import android.app.Activity;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.oddsoft.quicktranslatex.QuickTranslateX;
 
 /**
  * Created by andycheng on 2015/6/28.

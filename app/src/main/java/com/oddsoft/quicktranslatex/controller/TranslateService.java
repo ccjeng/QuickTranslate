@@ -1,4 +1,4 @@
-package com.oddsoft.quicktranslatex;
+package com.oddsoft.quicktranslatex.controller;
 
 import java.io.StringReader;
 import java.net.URLEncoder;
@@ -10,8 +10,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.oddsoft.quicktranslatex.app.OAuth;
-import com.oddsoft.quicktranslatex.app.QuickTranslateX;
+import com.oddsoft.quicktranslatex.views.MainActivity;
+import com.oddsoft.quicktranslatex.R;
+import com.oddsoft.quicktranslatex.QuickTranslateX;
 
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
@@ -34,7 +35,7 @@ public class TranslateService {
     private String authToken;
     private boolean isTokenValid = true;
 
-    TranslateService(MainActivity translate, String original, String from, String to) {
+    public TranslateService(MainActivity translate, String original, String from, String to) {
         this.translate = translate;
         this.original = original;
         this.from = from;
@@ -51,7 +52,6 @@ public class TranslateService {
                 trans = "..........";
             translate.setTranslated(trans);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

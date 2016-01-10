@@ -1,4 +1,4 @@
-package com.oddsoft.quicktranslatex.app;
+package com.oddsoft.quicktranslatex.utils;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

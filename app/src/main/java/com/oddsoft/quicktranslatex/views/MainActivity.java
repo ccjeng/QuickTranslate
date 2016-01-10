@@ -1,5 +1,6 @@
-package com.oddsoft.quicktranslatex;
+package com.oddsoft.quicktranslatex.views;
 
+import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -32,9 +34,13 @@ import com.mikepenz.aboutlibraries.Libs;
 import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
-import com.oddsoft.quicktranslatex.app.Analytics;
-import com.oddsoft.quicktranslatex.app.OAuth;
-import com.oddsoft.quicktranslatex.app.QuickTranslateX;
+import com.oddsoft.quicktranslatex.R;
+import com.oddsoft.quicktranslatex.controller.Key;
+import com.oddsoft.quicktranslatex.utils.Analytics;
+import com.oddsoft.quicktranslatex.controller.OAuth;
+import com.oddsoft.quicktranslatex.QuickTranslateX;
+import com.oddsoft.quicktranslatex.controller.TranslateService;
+import com.oddsoft.quicktranslatex.utils.Utils;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -51,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String PREF_FROM = "PREF_From";
     public static final String PREF_TO = "PREF_To";
 
-    @Bind(R.id.from_language) Spinner fromSpinner;
+    @Bind(com.oddsoft.quicktranslatex.R.id.from_language) Spinner fromSpinner;
     @Bind(R.id.to_language) Spinner toSpinner;
     @Bind(R.id.original_text) EditText origText;
     @Bind(R.id.translated_text) TextView transText;
@@ -73,10 +79,11 @@ public class MainActivity extends AppCompatActivity {
     private Future<?> transPending;
     private AdView adView;
 
-
-
     private Analytics ga;
     private String mAuthToken;
+
+    private static final int DIALOG_WELCOME = 1;
+    private static final int DIALOG_UPDATE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,13 +98,18 @@ public class MainActivity extends AppCompatActivity {
         setAdapters();
         setListeners();
         restorePrefs();
+
+        //todo check network status first!!
         initAuth();
+        //incomingContent();
         adView();
 
         ga = new Analytics();
         ga.trackerPage(this);
 
-
+        if (Utils.newVersionInstalled(this)) {
+            this.showDialog(DIALOG_UPDATE);
+        }
     }
 
     @Override
@@ -110,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         settings.edit()
                 .putInt(PREF_FROM, fromSpinner.getSelectedItemPosition())
                 .putInt(PREF_TO, toSpinner.getSelectedItemPosition())
-                .commit();
+                .apply();
     }
 
 
@@ -183,6 +195,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initAuth() {
+
+
         new OAuth().execute();
     }
 
@@ -490,4 +504,57 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    protected final Dialog onCreateDialog(final int id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setIcon(new IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_info)
+                .color(Color.GRAY)
+                .sizeDp(24));
+
+        builder.setCancelable(true);
+        builder.setPositiveButton(android.R.string.ok, null);
+
+        //final Context context = this;
+
+        switch (id) {
+            // case DIALOG_WELCOME:
+            //     builder.setTitle(getResources().getString(R.string.welcome_title));
+            //     builder.setMessage(getResources().getString(R.string.welcome_message));
+            //     break;
+            case DIALOG_UPDATE:
+                builder.setTitle(getString(R.string.changelog_title));
+                final String[] changes = getResources().getStringArray(R.array.updates);
+                final StringBuilder buf = new StringBuilder();
+                for (int i = 0; i < changes.length; i++) {
+                    buf.append("\n\n");
+                    buf.append(changes[i]);
+                }
+                builder.setMessage(buf.toString().trim());
+                break;
+        }
+        return builder.create();
+    }
+
+    //Handle the Incoming Content
+    private void incomingContent(){
+
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
+
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/plain".equals(type)) {
+                // Handle text being sent
+                String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+                if (sharedText != null) {
+                    // Update UI to reflect text being shared
+                    origText.setText(sharedText);
+
+                }
+            }
+        }
+
+    }
 }

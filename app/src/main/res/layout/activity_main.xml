@@ -5,7 +5,7 @@
     android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -78,7 +78,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#FF0000" />
 
-            <com.oddsoft.quicktranslatex.app.ClearableEditText
+            <com.oddsoft.quicktranslatex.utils.ClearableEditText
                 android:id="@+id/original_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

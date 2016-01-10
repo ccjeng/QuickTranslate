@@ -36,7 +36,9 @@
         <item>About</item>
     </string-array>
 
-    <string name="license"><Data><![CDATA[Copyright (c) 2015 ccjeng@google.com<br/><br/>
+    <string name="license"><Data><![CDATA[Copyright (c) 2016 ccjeng@google.com<br/><br/>
     <br/>A lightweight language translation tool. Use Microsoft translate service to translate between language pairs.
     ]]></Data></string>
+
+    <string name="changelog_title">Changelog</string>
 </resources>
