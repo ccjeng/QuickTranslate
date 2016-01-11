@@ -37,9 +37,7 @@ public class OAuth extends AsyncTask<String, Void, String> {
 
         String client_secret = aryClientSecret[index];
         String client_id = aryClientId[index];
-
-
-
+        
 
         /*
         Key k = new Key();
