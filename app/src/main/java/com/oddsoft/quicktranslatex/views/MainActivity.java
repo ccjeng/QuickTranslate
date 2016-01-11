@@ -35,7 +35,6 @@ import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.oddsoft.quicktranslatex.R;
-import com.oddsoft.quicktranslatex.controller.Key;
 import com.oddsoft.quicktranslatex.utils.Analytics;
 import com.oddsoft.quicktranslatex.controller.OAuth;
 import com.oddsoft.quicktranslatex.QuickTranslateX;
@@ -195,8 +194,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initAuth() {
-
-
         new OAuth().execute();
     }
 

@@ -25,32 +25,25 @@ public class OAuth extends AsyncTask<String, Void, String> {
         String[] aryClientSecret = {"aQpYdSsbH0hQZzj7KUEIwhZHnh4+NB5eMmMRkVoUW20="
                 , "OyQFY5PhpxZNGIJlekizA786BVhufZumkVGuqubzPpI="
                 , "gHaxgCWnUzhAtUuVXR5MKOJ2v+5cCAp7VlmmUN/NeFQ="
-                , "NzUXAECywhvStqrpVyMoqyv8f8V7vqXBSNEGA3fDJR0="};
+                , "NzUXAECywhvStqrpVyMoqyv8f8V7vqXBSNEGA3fDJR0="
+                , "000VBs/Kx3C+oHQeZ5IzYKg4tiSECe4aiK78i2JKi2OI3M="};
 
         String[] aryClientId = {"android-oddsoft-quicktranslatexd"
                 , "android-oddsoft-quicktranslatexd1"
                 , "android-oddsoft-quicktranslatepro"
-                , "android-oddsoft-quicktranslatexd2"};
+                , "android-oddsoft-quicktranslatexd2"
+                , "android-oddsoft-quicktranslate"};
 
 
         int index = new Random().nextInt(aryClientSecret.length);
 
         String client_secret = aryClientSecret[index];
         String client_id = aryClientId[index];
-        
 
-        /*
-        Key k = new Key();
-        k.getKeyList();
-
-        String client_secret = k.getClientSecure();
-        String client_id = k.getClientID();
-*/
         Log.d(TAG, "client_secret = " + client_secret);
         Log.d(TAG, "client_id = " + client_id);
 
         String authToken = "";
-
 
         // Construct content
         String content = "grant_type=client_credentials";
