@@ -8,7 +8,8 @@
     <string name="empty"></string>
     <string name="translating">翻译中...</string>
     <string name="translation_error">(网路错误)</string> 
-    <string name="translation_interrupted">(翻译中断)</string>  
+    <string name="translation_interrupted">(翻译中断)</string>
+    <string name="network_error">(沒有网路)</string>
     <string name="about_title">关於</string> 
     <string name="exit_title">离开</string>
     <string name="share_title">分享</string>

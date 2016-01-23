@@ -8,7 +8,8 @@
     <string name="empty"></string>
     <string name="translating">翻譯中...</string>
     <string name="translation_error">(網路錯誤)</string> 
-    <string name="translation_interrupted">(翻譯中斷)</string>  
+    <string name="translation_interrupted">(翻譯中斷)</string>
+    <string name="network_error">(沒有網路)</string>
     <string name="about_title">關於</string> 
     <string name="exit_title">離開</string>
     <string name="share_title">分享</string>

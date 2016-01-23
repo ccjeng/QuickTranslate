@@ -77,7 +77,9 @@ public class TranslateService {
                 //regenerate token
                 Log.d(TAG, "regenerate token");
 
-                new OAuth().execute();
+                //new OAuth().execute();
+                Secret.execParseQuery();
+
                 isTokenValid = true;
                 authToken = QuickTranslateX.getAuthToken();
                 isTokenValid = QuickTranslateX.getAuthState();

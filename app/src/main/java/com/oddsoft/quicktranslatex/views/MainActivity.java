@@ -35,6 +35,7 @@ import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.oddsoft.quicktranslatex.R;
+import com.oddsoft.quicktranslatex.controller.Secret;
 import com.oddsoft.quicktranslatex.utils.Analytics;
 import com.oddsoft.quicktranslatex.controller.OAuth;
 import com.oddsoft.quicktranslatex.QuickTranslateX;
@@ -99,9 +100,16 @@ public class MainActivity extends AppCompatActivity {
         restorePrefs();
 
         //todo check network status first!!
-        initAuth();
-        //incomingContent();
-        adView();
+
+        if (Utils.isNetworkConnected(this)) {
+
+            Secret.execParseQuery();
+            //initAuth();
+            //incomingContent();
+            adView();
+        } else {
+            transText.setText(R.string.network_error);
+        }
 
         ga = new Analytics();
         ga.trackerPage(this);
@@ -194,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initAuth() {
-        new OAuth().execute();
+        //new OAuth().execute();
     }
 
     /**

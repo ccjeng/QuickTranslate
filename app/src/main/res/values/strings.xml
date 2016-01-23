@@ -11,7 +11,8 @@
     <string name="empty"></string>
     <string name="translating">Translating...</string>
     <string name="translation_error">(Network Error)</string> 
-    <string name="translation_interrupted">(Translation Interrupted)</string>  
+    <string name="translation_interrupted">(Translation Interrupted)</string>
+    <string name="network_error">(Network is not available)</string>
     <string name="about_title">About</string> 
     <string name="exit_title">Exit</string> 
     <string name="share_title">Share</string>

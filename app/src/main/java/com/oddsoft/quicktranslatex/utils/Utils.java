@@ -5,10 +5,13 @@ package com.oddsoft.quicktranslatex.utils;
  */
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -82,7 +85,25 @@ public class Utils {
         } else if (o instanceof Boolean) {
             editor.putBoolean(constant, (Boolean) o);
         }
-        editor.commit();
+        editor.apply();
+    }
+
+
+    private static ConnectivityManager connMgr;
+
+    public static boolean isNetworkConnected(Context context){
+        if(null == connMgr){
+            connMgr = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        }
+
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+        if (networkInfo != null && networkInfo.isConnected()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 }

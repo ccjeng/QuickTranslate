@@ -12,33 +12,30 @@ import java.io.DataOutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
  * Created by andycheng on 2015/8/5.
  */
 public class OAuth extends AsyncTask<String, Void, String> {
-    private static final String TAG = "OAuth";
+    private static final String TAG = "OAuth2";
+
+    private ArrayList<String> clientList;
+    private ArrayList<String> secretList;
+
+    public OAuth(ArrayList<String> clientList, ArrayList<String> secretList) {
+        super();
+        this.clientList = clientList;
+        this.secretList = secretList;
+    }
 
     public String getToken() {
 
-        String[] aryClientSecret = {"aQpYdSsbH0hQZzj7KUEIwhZHnh4+NB5eMmMRkVoUW20="
-                , "OyQFY5PhpxZNGIJlekizA786BVhufZumkVGuqubzPpI="
-                , "gHaxgCWnUzhAtUuVXR5MKOJ2v+5cCAp7VlmmUN/NeFQ="
-                , "NzUXAECywhvStqrpVyMoqyv8f8V7vqXBSNEGA3fDJR0="
-                , "000VBs/Kx3C+oHQeZ5IzYKg4tiSECe4aiK78i2JKi2OI3M="};
+        int index = new Random().nextInt(clientList.size());
 
-        String[] aryClientId = {"android-oddsoft-quicktranslatexd"
-                , "android-oddsoft-quicktranslatexd1"
-                , "android-oddsoft-quicktranslatepro"
-                , "android-oddsoft-quicktranslatexd2"
-                , "android-oddsoft-quicktranslate"};
-
-
-        int index = new Random().nextInt(aryClientSecret.length);
-
-        String client_secret = aryClientSecret[index];
-        String client_id = aryClientId[index];
+        String client_secret = secretList.get(index);
+        String client_id = clientList.get(index);
 
         Log.d(TAG, "client_secret = " + client_secret);
         Log.d(TAG, "client_id = " + client_id);
@@ -83,6 +80,7 @@ public class OAuth extends AsyncTask<String, Void, String> {
                 authToken = json.get("access_token").toString();
 
                 Log.d(TAG, "access token: " + authToken);
+
             }
 
             input.close();
@@ -95,11 +93,11 @@ public class OAuth extends AsyncTask<String, Void, String> {
         return authToken;
     }
 
+
     @Override
     protected String doInBackground(String... params) {
         return getToken();
     }
-
 
     @Override
     protected void onPostExecute(String authToken) {
@@ -110,4 +108,5 @@ public class OAuth extends AsyncTask<String, Void, String> {
 
         Log.d(TAG, "authToken: " + authToken);
     }
+
 }
