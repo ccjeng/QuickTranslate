@@ -10,6 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.oddsoft.quicktranslatex.utils.Utils;
 import com.oddsoft.quicktranslatex.views.MainActivity;
 import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.QuickTranslateX;
@@ -22,7 +23,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class TranslateService {
     private static final String TAG = "TranslateService";
-    private final MainActivity translate;
+    private final MainActivity content;
     private final String original, from, to;
 
     private String client_secret;
@@ -35,8 +36,8 @@ public class TranslateService {
     private String authToken;
     private boolean isTokenValid = true;
 
-    public TranslateService(MainActivity translate, String original, String from, String to) {
-        this.translate = translate;
+    public TranslateService(MainActivity content, String original, String from, String to) {
+        this.content = content;
         this.original = original;
         this.from = from;
         this.to = to;
@@ -44,13 +45,13 @@ public class TranslateService {
         authToken = QuickTranslateX.getAuthToken();
         isTokenValid = QuickTranslateX.getAuthState();
 
-        queue = Volley.newRequestQueue(translate);
+        queue = Volley.newRequestQueue(content);
 
         try {
             String trans = doTranslate(original, from, to);
             if (trans.equals(""))
                 trans = "..........";
-            translate.setTranslated(trans);
+            content.setTranslated(trans);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,28 +68,32 @@ public class TranslateService {
             Log.d(TAG, "isTokenValid = " + isTokenValid);
         }
 
-        String q = original;
+        //String q = original;
 
         try {
 
             if (isTokenValid) {
                 callTranslate(authToken);
+
             } else {
                 //regenerate token
                 Log.d(TAG, "regenerate token");
 
-                //new OAuth().execute();
-                Secret.execParseQuery();
+                if (Utils.isNetworkConnected(content)) {
+                    Secret.execParseQuery();
+                    isTokenValid = true;
+                    authToken = QuickTranslateX.getAuthToken();
+                    isTokenValid = QuickTranslateX.getAuthState();
 
-                isTokenValid = true;
-                authToken = QuickTranslateX.getAuthToken();
-                isTokenValid = QuickTranslateX.getAuthState();
+                } else {
+                    result = content.getResources().getString(R.string.network_error);
+                }
+
             }
 
         } catch (Exception e) {
             Log.e(TAG, "IOException", e);
-            result = translate.getResources().getString(
-                    R.string.translation_interrupted);
+            result = content.getResources().getString(R.string.translation_interrupted);
         } finally {
             //
         }
@@ -118,17 +123,17 @@ public class TranslateService {
 
                 try {
                     if (QuickTranslateX.APPDEBUG) {
-                        Log.d(TAG, "Response = " + response.toString());
+                        Log.d(TAG, "Response = " + response);
                     }
                     //check exception, if exception, set token=blank...
                     //<string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</string>
                     //print result
 
-                    if (response.toString().substring(0,14).equals("<string xmlns=")) {
+                    if (response.substring(0,14).equals("<string xmlns=")) {
                         DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-                        Document doc = db.parse(new InputSource(new StringReader(response.toString())));
+                        Document doc = db.parse(new InputSource(new StringReader(response)));
                         result = doc.getFirstChild().getTextContent();
-                        translate.setTranslated(result);
+                        content.setTranslated(result);
                     }
                     else {
                         isTokenValid = false;

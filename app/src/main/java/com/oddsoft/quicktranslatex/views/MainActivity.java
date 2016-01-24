@@ -27,6 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.*;
 import com.google.android.gms.analytics.GoogleAnalytics;
@@ -99,16 +100,13 @@ public class MainActivity extends AppCompatActivity {
         setListeners();
         restorePrefs();
 
-        //todo check network status first!!
-
         if (Utils.isNetworkConnected(this)) {
-
             Secret.execParseQuery();
-            //initAuth();
             //incomingContent();
             adView();
         } else {
             transText.setText(R.string.network_error);
+            Toast.makeText(this, R.string.network_error, Toast.LENGTH_LONG).show();
         }
 
         ga = new Analytics();
@@ -198,11 +196,6 @@ public class MainActivity extends AppCompatActivity {
             fromSpinner.setSelection(pref_from);
             toSpinner.setSelection(pref_to);
         }
-    }
-
-
-    private void initAuth() {
-        //new OAuth().execute();
     }
 
     /**
@@ -389,10 +382,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void search() {
-        Log.d(TAG, "searchPreference=" + searchPreference.toString());
+        Log.d(TAG, "searchPreference=" + searchPreference);
         Uri uri;
 
-        if (searchPreference.toString().equals("Google")) {
+        if (searchPreference.equals("Google")) {
+            /*
             Intent search = new Intent(Intent.ACTION_WEB_SEARCH);
             search.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             search.putExtra(SearchManager.QUERY, transText.getText());
@@ -402,9 +396,16 @@ public class MainActivity extends AppCompatActivity {
                 search.putExtra(SearchManager.APP_DATA, appData);
             }
             startActivity(search);
+            */
+            uri = Uri.parse("http://www.google.com/search?q="
+                    + transText.getText().toString().replace(" ", "+"));
+            Log.d(TAG, "Google uri=" + uri.toString());
+            if (!transText.getText().equals("")) {
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            }
         }
 
-        if (searchPreference.toString().equals("Bing")) {
+        if (searchPreference.equals("Bing")) {
             uri = Uri.parse("http://m.bing.com/search/search.aspx?A=webresults&Q="
                     + transText.getText().toString().replace(" ", "+"));
             Log.d(TAG, "bing uri=" + uri.toString());
@@ -433,7 +434,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.navAbout:
                         new LibsBuilder()
-                                //provide a style (optional) (LIGHT, DARK, LIGHT_DARK_TOOLBAR)
                                 .withActivityStyle(Libs.ActivityStyle.LIGHT_DARK_TOOLBAR)
                                 .withAboutIconShown(true)
                                 .withAboutVersionShown(true)

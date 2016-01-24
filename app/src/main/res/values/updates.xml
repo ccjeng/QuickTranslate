@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>3.9.2\nAdd new language: Kiswahili
+    	<item>3.9.3\nFix some bugs\nEnhance translate performance
     	</item>
 </string-array>
 </resources>
