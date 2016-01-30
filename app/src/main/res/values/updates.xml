@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>3.9.3\nFix some bugs\nEnhance translate performance
+    	<item>3.9.4\nFix some bugs
     	</item>
 </string-array>
 </resources>

@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class QuickTranslateX extends Application {
 
     // Debugging switch
-    public static final boolean APPDEBUG = true;
+    public static final boolean APPDEBUG = BuildConfig.DEBUG;
     public static final String TAG = QuickTranslateX.class.getSimpleName();
     //Parse
     private static final String PARSE_APPLICATION_ID = "qW64sEj83siCgiwUrFGEcxUzhlMA2YU5Zc75I8mq";
@@ -55,7 +55,7 @@ public class QuickTranslateX extends Application {
         if (!mTrackers.containsKey(trackerId)) {
 
             GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
-            //analytics.getLogger().setLogLevel(Logger.LogLevel.VERBOSE);
+            analytics.getLogger().setLogLevel(Logger.LogLevel.VERBOSE);
             if (APPDEBUG) {
                 analytics.getInstance(this).setDryRun(true);
             }
