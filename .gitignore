@@ -25,3 +25,6 @@ proguard/
 
 # Log Files
 *.log
+
+# Constant File
+Constant.java
