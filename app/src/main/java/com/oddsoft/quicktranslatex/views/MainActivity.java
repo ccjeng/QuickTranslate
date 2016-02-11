@@ -29,6 +29,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
+import com.firebase.client.ValueEventListener;
 import com.google.android.gms.ads.*;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.mikepenz.aboutlibraries.Libs;
@@ -41,8 +46,10 @@ import com.oddsoft.quicktranslatex.utils.Analytics;
 import com.oddsoft.quicktranslatex.controller.OAuth;
 import com.oddsoft.quicktranslatex.QuickTranslateX;
 import com.oddsoft.quicktranslatex.controller.TranslateService;
+import com.oddsoft.quicktranslatex.utils.SecretKey;
 import com.oddsoft.quicktranslatex.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -92,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        Firebase.setAndroidContext(this);
+
         initThreading();
         findViews();
         initActionBar();
@@ -101,7 +110,10 @@ public class MainActivity extends AppCompatActivity {
         restorePrefs();
 
         if (Utils.isNetworkConnected(this)) {
-            Secret.execParseQuery();
+
+           Secret.execFirebase();
+            //Secret.execParseQuery();
+
             //incomingContent();
             adView();
         } else {

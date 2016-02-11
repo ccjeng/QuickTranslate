@@ -6,7 +6,7 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Logger;
 import com.google.android.gms.analytics.Tracker;
 import com.oddsoft.quicktranslatex.utils.Constant;
-import com.parse.Parse;
+//import com.parse.Parse;
 
 import java.util.HashMap;
 
@@ -23,7 +23,7 @@ public class QuickTranslateX extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Parse.initialize(this, Constant.PARSE_APPLICATION_ID, Constant.PARSE_CLIENT_KEY);
+        //Parse.initialize(this, Constant.PARSE_APPLICATION_ID, Constant.PARSE_CLIENT_KEY);
     }
 
     private static Boolean mAuthState = false;
