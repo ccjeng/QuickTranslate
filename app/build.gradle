@@ -6,8 +6,8 @@ android {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 28
-        versionName '3.9.4.013016QT'
+        versionCode 29
+        versionName '3.10.0.021216QT'
     }
     buildTypes {
         release {
@@ -31,7 +31,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.firebase:firebase-client-android:2.5.0'
-
     compile project(':volley')
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.mikepenz:iconics-core:1.7.3@aar'

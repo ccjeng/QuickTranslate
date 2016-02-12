@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>3.9.4\nFix some bugs
+    	<item>3.10.0\nNew Feature: Now you can "Share" selected texts from other apps, and translate them in Quick Translate.
     	</item>
 </string-array>
 </resources>

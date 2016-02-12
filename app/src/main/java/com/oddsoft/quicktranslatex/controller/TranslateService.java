@@ -80,7 +80,7 @@ public class TranslateService {
                 Log.d(TAG, "regenerate token");
 
                 if (Utils.isNetworkConnected(content)) {
-                    Secret.execParseQuery();
+                    Secret.execFirebase();
                     isTokenValid = true;
                     authToken = QuickTranslateX.getAuthToken();
                     isTokenValid = QuickTranslateX.getAuthState();

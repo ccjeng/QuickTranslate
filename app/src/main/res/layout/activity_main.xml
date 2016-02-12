@@ -87,7 +87,7 @@
                 android:hint="@string/original_hint"
                 android:linksClickable="false"
                 android:padding="0dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
     </LinearLayout>
