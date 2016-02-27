@@ -2,6 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="all">
         <item
+            android:id="@+id/navHistory"
+            android:title="@string/activity_history_title"/>
+        <item
             android:id="@+id/navSetting"
             android:title="@string/preference_title"/>
         <item

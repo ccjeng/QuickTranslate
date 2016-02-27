@@ -23,4 +23,8 @@
     <style name="NavigationDrawerStyle">
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="MyMaterialTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="MyMaterialTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

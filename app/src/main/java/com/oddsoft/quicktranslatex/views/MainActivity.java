@@ -24,7 +24,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -79,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
     private TextWatcher textWatcher;
     private AdapterView.OnItemSelectedListener itemListener;
     private String[] langShortNames;
+    private String[] langLongNames;
+
 
     private Handler guiThread;
     private ExecutorService transThread;
@@ -211,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
 
         langShortNames = getResources().getStringArray(R.array.languages_values);
+        langLongNames = getResources().getStringArray(R.array.languages);
 
         // Font
         transText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf"));
@@ -355,6 +357,13 @@ public class MainActivity extends AppCompatActivity {
         return result;
     }
 
+    private String getLangName(Spinner spinner) {
+        String result = langLongNames[spinner.getSelectedItemPosition()];
+        if (QuickTranslateX.APPDEBUG) {
+            Log.d(TAG, " getLang " + result);
+        }
+        return result;
+    }
     /**
      * Request an update to start after a short delay
      */
@@ -467,6 +476,9 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 switch (id) {
+                    case R.id.navHistory:
+                        startActivity(new Intent(MainActivity.this, HistoryActivity.class));
+                        break;
                     case R.id.navSetting:
                         startActivity(new Intent(MainActivity.this, Prefs.class));
                         break;
@@ -487,6 +499,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //change navigation drawer item icons
+        navigation.getMenu().findItem(R.id.navHistory).setIcon(new IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_history)
+                .color(Color.GRAY)
+                .sizeDp(24));
+
         navigation.getMenu().findItem(R.id.navSetting).setIcon(new IconicsDrawable(this)
                 .icon(GoogleMaterial.Icon.gmd_settings)
                 .color(Color.GRAY)
@@ -497,7 +514,6 @@ public class MainActivity extends AppCompatActivity {
                 .color(Color.GRAY)
                 .sizeDp(24));
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -601,7 +617,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     private void saveResult() {
 
         String text = transText.getText().toString();
@@ -611,8 +626,8 @@ public class MainActivity extends AppCompatActivity {
         else {
             Item item = new Item();
             item.setDatetime(new Date().getTime());
-            item.setFromId(getLang(fromSpinner));
-            item.setToId(getLang(toSpinner));
+            item.setFromId(getLangName(fromSpinner));
+            item.setToId(getLangName(toSpinner));
             item.setFromText(origText.getText().toString().trim());
             item.setToText(transText.getText().toString().trim());
             historyDAO.insert(item);

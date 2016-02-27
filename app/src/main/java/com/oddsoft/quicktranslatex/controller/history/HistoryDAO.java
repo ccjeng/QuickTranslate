@@ -109,8 +109,11 @@ public class HistoryDAO {
     // 讀取所有記事資料
     public List<Item> getAll() {
         List<Item> result = new ArrayList<>();
+
+        String orderBy = KEY_ID + " DESC";
+
         Cursor cursor = db.query(
-                TABLE_NAME, null, null, null, null, null, null, null);
+                TABLE_NAME, null, null, null, null, null, orderBy, null);
 
         while (cursor.moveToNext()) {
             result.add(getRecord(cursor));
