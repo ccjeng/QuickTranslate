@@ -53,13 +53,19 @@
             </TableRow>
 
             <TableRow>
-
                 <TextView
                     android:id="@+id/to_text"
                     android:text="@string/to_text" />
 
                 <Spinner android:id="@+id/to_language" />
             </TableRow>
+
+            <ImageButton
+                android:id="@+id/save_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:contentDescription="Save Result"/>
 
             <TextView
                 android:id="@+id/translated_text"

@@ -29,6 +29,7 @@
 	<string name="upgrade_pref_summary">連結Android Market下載Pro版本</string>
  
     <string name="ok_label">確認</string>
+    <string name="result_saved">已儲存</string>
 
     <string-array name="drawer_menu">
         <item>設定</item>

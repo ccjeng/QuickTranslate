@@ -24,7 +24,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,11 +40,14 @@ import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.controller.Secret;
+import com.oddsoft.quicktranslatex.controller.history.HistoryDAO;
+import com.oddsoft.quicktranslatex.controller.history.Item;
 import com.oddsoft.quicktranslatex.utils.Analytics;
 import com.oddsoft.quicktranslatex.QuickTranslateX;
 import com.oddsoft.quicktranslatex.controller.TranslateService;
 import com.oddsoft.quicktranslatex.utils.Utils;
 
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -66,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.navigation) NavigationView navigation;
     @Bind(R.id.drawerlayout) DrawerLayout drawerLayout;
     @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.save_result) ImageButton saveResult;
 
     //private boolean fuzzyPreference;
     private String searchPreference;
@@ -86,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int DIALOG_WELCOME = 1;
     private static final int DIALOG_UPDATE = 2;
 
+    private HistoryDAO historyDAO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +109,27 @@ public class MainActivity extends AppCompatActivity {
         setAdapters();
         setListeners();
         restorePrefs();
+
+        saveResult.setVisibility(View.GONE);
+        saveResult.setBackground(new IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_save)
+                .color(Color.GRAY));
+
+        saveResult.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                try {
+                    saveResult();
+                    Toast.makeText(MainActivity.this, getString(R.string.result_saved), Toast.LENGTH_LONG).show();
+                    Log.d(TAG, "Save Result!");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        // 建立資料庫物件
+        historyDAO = new HistoryDAO(this);
+
 
         if (Utils.isNetworkConnected(this)) {
             Secret.execFirebase();
@@ -350,6 +379,13 @@ public class MainActivity extends AppCompatActivity {
         guiThread.post(new Runnable() {
             public void run() {
                 view.setText(text);
+
+                if (text.equals("") || text.equals("..........")) {
+                    saveResult.setVisibility(View.GONE);
+                } else {
+                    saveResult.setVisibility(View.VISIBLE);
+                }
+
                 if (QuickTranslateX.APPDEBUG) {
                     Log.d(TAG, " guiSetText " + text);
                 }
@@ -563,5 +599,23 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+
+    private void saveResult() {
+
+        String text = transText.getText().toString();
+        if (text.equals("") || text.equals("..........")) {
+            //do not save empty result!
+        }
+        else {
+            Item item = new Item();
+            item.setDatetime(new Date().getTime());
+            item.setFromId(getLang(fromSpinner));
+            item.setToId(getLang(toSpinner));
+            item.setFromText(origText.getText().toString().trim());
+            item.setToText(transText.getText().toString().trim());
+            historyDAO.insert(item);
+        }
     }
 }
