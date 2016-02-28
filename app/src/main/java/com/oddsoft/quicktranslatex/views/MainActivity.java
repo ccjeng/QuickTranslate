@@ -45,6 +45,7 @@ import com.oddsoft.quicktranslatex.controller.history.Item;
 import com.oddsoft.quicktranslatex.utils.Analytics;
 import com.oddsoft.quicktranslatex.QuickTranslateX;
 import com.oddsoft.quicktranslatex.controller.TranslateService;
+import com.oddsoft.quicktranslatex.utils.Constant;
 import com.oddsoft.quicktranslatex.utils.Utils;
 
 import java.util.Date;
@@ -121,8 +122,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     saveResult();
-                    Toast.makeText(MainActivity.this, getString(R.string.result_saved), Toast.LENGTH_LONG).show();
-                    Log.d(TAG, "Save Result!");
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -193,12 +193,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void adView() {
+
         adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest;
         if (QuickTranslateX.APPDEBUG) {
             adRequest = new AdRequest.Builder()
                     .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // 仿真器
-                    .addTestDevice("DF9E888CAA233DE54A7FD15B3B1A1522") // 我的 Galaxy Nexus 測試手機
+                    .addTestDevice(Constant.ADMOB_TEST_DEVICE) // 我的 Galaxy Nexus 測試手機
                     .build();
         } else {
             adRequest = new AdRequest.Builder().build();
@@ -389,7 +390,9 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 view.setText(text);
 
-                if (text.equals("") || text.equals("..........")) {
+                if (text.equals("") ||
+                        text.equals("..........") ||
+                        origText.getText().toString().trim().equals("")) {
                     saveResult.setVisibility(View.GONE);
                 } else {
                     saveResult.setVisibility(View.VISIBLE);
@@ -576,6 +579,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.clear_button:
                 ga.trackEvent(this, "Click", "Button", "Clean", 0);
+                saveResult.setVisibility(View.GONE);
                 origText.setText("");
                 transText.setText("");
                 break;
@@ -594,7 +598,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     protected final Dialog onCreateDialog(final int id) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -651,11 +654,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveResult() {
 
-        String text = transText.getText().toString();
-        if (text.equals("") || text.equals("..........")) {
-            //do not save empty result!
-        }
-        else {
+        String text = transText.getText().toString().trim();
+        String orgText = origText.getText().toString().trim();
+
+        if (!text.equals("") &&
+                !text.equals("..........") &&
+                !orgText.equals("")) {
+
             Item item = new Item();
             item.setDatetime(new Date().getTime());
             item.setFromId(getLangName(fromSpinner));
@@ -663,6 +668,9 @@ public class MainActivity extends AppCompatActivity {
             item.setFromText(origText.getText().toString().trim());
             item.setToText(transText.getText().toString().trim());
             historyDAO.insert(item);
+
+            Toast.makeText(MainActivity.this, getString(R.string.result_saved), Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Save Result!");
         }
     }
 }

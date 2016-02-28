@@ -2,8 +2,6 @@ package com.oddsoft.quicktranslatex.controller.history;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.media.Image;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,13 +57,14 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             itemView = (LinearLayout) convertView;
         }
 
+        TextView dateTimeView = (TextView) itemView.findViewById(R.id.datetime);
         TextView fromIdView = (TextView) itemView.findViewById(R.id.from_id);
         TextView fromTextView = (TextView) itemView.findViewById(R.id.from_text);
         TextView toIdView = (TextView) itemView.findViewById(R.id.to_id);
         TextView toTextView = (TextView) itemView.findViewById(R.id.to_text);
         ImageButton deleteButton = (ImageButton) itemView.findViewById(R.id.delete);
 
-
+        dateTimeView.setText(item.getLocaleDatetime());
         fromIdView.setText(item.getFromId());
         fromTextView.setText(item.getFromText());
         toIdView.setText(item.getToId());

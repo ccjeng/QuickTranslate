@@ -60,12 +60,17 @@
                 <Spinner android:id="@+id/to_language" />
             </TableRow>
 
-            <ImageButton
-                android:id="@+id/save_result"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top|end"
-                android:contentDescription="Save Result"/>
+                android:gravity="end">
+                <ImageButton
+                    android:id="@+id/save_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    android:contentDescription="Save Result"/>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/translated_text"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>3.10.0\n新功能：可以在其他App"分享"已選取的文字到快速翻譯，然後翻譯這些文字
+    	<item>4.0.0\n新功能：可將翻譯的文字儲存下來，以供日後查閱
     	</item>
 </string-array>
 </resources>
