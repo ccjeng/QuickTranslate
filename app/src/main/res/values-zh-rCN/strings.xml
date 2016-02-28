@@ -30,7 +30,8 @@
     <string name="ok_label">确认</string>
     <string name="result_saved">已储存</string>
     <string name="activity_history_title">已储存的纪录</string>
-    <string name="result_nodata">沒有資料</string>
+    <string name="result_nodata">没有资料</string>
+    <string name="result_deleted">已删除</string>
 
 
     <string-array name="drawer_menu">

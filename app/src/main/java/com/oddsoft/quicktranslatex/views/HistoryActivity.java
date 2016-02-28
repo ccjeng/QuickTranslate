@@ -1,5 +1,6 @@
 package com.oddsoft.quicktranslatex.views;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -41,9 +42,7 @@ public class HistoryActivity extends AppCompatActivity {
     @Bind(R.id.listView)
     ListView listView;
 
-    private ItemAdapter itemAdapter;
     private HistoryDAO historyDAO;
-    private List<Item> items;
 
 
     @Override
@@ -63,33 +62,12 @@ public class HistoryActivity extends AppCompatActivity {
                 .color(Color.WHITE)
                 .actionBar());
 
-
         historyDAO = new HistoryDAO(this);
 
-        Log.d(TAG, "count = " + historyDAO.getCount());
-
-
         if (historyDAO.getCount() == 0) {
-            Toast.makeText(this, "", Toast.LENGTH_LONG ).show();
+            Toast.makeText(this, R.string.result_nodata, Toast.LENGTH_LONG ).show();
         } else {
-
-            items = historyDAO.getAll();
-
-            itemAdapter = new ItemAdapter(this, R.layout.history_item, items);
-            listView.setAdapter(itemAdapter);
-            listView.setOnItemClickListener(new ListView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position,
-                                        long id) {
-
-                    Item item = items.get(position);
-                    Log.d(TAG, item.getFromText());
-
-                    //confirm
-                    //delete
-                    //refresh
-                }
-            });
+            refreshData();
         }
 
 
@@ -118,4 +96,10 @@ public class HistoryActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    public void refreshData() {
+        List<Item> items = historyDAO.getAll();
+        ItemAdapter itemAdapter = new ItemAdapter(this, R.layout.history_item, items);
+        listView.setAdapter(itemAdapter);
+    }
 }

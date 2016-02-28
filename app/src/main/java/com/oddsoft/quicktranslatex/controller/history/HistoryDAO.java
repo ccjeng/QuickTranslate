@@ -4,7 +4,6 @@ package com.oddsoft.quicktranslatex.controller.history;
  * Created by andycheng on 2016/2/27.
  */
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import android.content.ContentValues;
@@ -171,20 +170,6 @@ public class HistoryDAO {
         }
 
         return result;
-    }
-
-    // 建立範例資料
-    public void sample() {
-        /*
-        Item item = new Item(0, new Date().getTime(), Colors.RED, "關於Android Tutorial的事情.", "Hello content", "", 0, 0, 0);
-        Item item2 = new Item(0, new Date().getTime(), Colors.BLUE, "一隻非常可愛的小狗狗!", "她的名字叫「大熱狗」，又叫\n作「奶嘴」，是一隻非常可愛\n的小狗。", "", 25.04719, 121.516981, 0);
-        Item item3 = new Item(0, new Date().getTime(), Colors.GREEN, "一首非常好聽的音樂！", "Hello content", "", 0, 0, 0);
-        Item item4 = new Item(0, new Date().getTime(), Colors.ORANGE, "儲存在資料庫的資料", "Hello content", "", 0, 0, 0);
-
-        insert(item);
-        insert(item2);
-        insert(item3);
-        insert(item4);*/
     }
 
 }

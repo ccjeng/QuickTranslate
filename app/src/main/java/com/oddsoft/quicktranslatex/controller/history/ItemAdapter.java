@@ -11,10 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.oddsoft.quicktranslatex.R;
+import com.oddsoft.quicktranslatex.views.HistoryActivity;
 
 import java.util.List;
 
@@ -26,19 +28,24 @@ public class ItemAdapter extends ArrayAdapter<Item> {
     private static final String TAG = "ItemAdapter";
     private int resource;
     private List<Item> items;
-    private Context context;
+    private HistoryActivity context;
 
-    public ItemAdapter(Context context, int resource, List<Item> items) {
+    HistoryDAO historyDAO;
+
+    public ItemAdapter(HistoryActivity context, int resource, List<Item> items) {
         super(context, resource, items);
         this.context = context;
         this.resource = resource;
         this.items = items;
+
+        historyDAO = new HistoryDAO(context);
     }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         LinearLayout itemView;
         final Item item = getItem(position);
+
 
         if (convertView == null) {
             // 建立項目畫面元件
@@ -69,14 +76,19 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                 .color(Color.GRAY));
 
         //onClick for image button inside list view
-        /*
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "position = " + position);
+                //delete
+                historyDAO.delete(item.getId());
+
+                //refresh
+                context.refreshData();
+
+                Toast.makeText(context, R.string.result_deleted, Toast.LENGTH_LONG).show();
+
             }
         });
-        */
 
         return itemView;
     }

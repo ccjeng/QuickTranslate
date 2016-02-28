@@ -32,6 +32,8 @@
     <string name="result_saved">已儲存</string>
     <string name="activity_history_title">已儲存的紀錄</string>
     <string name="result_nodata">沒有資料</string>
+    <string name="result_deleted">已刪除</string>
+
 
     <string-array name="drawer_menu">
         <item>設定</item>

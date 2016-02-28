@@ -32,6 +32,8 @@
     <string name="result_saved">Result Saved</string>
     <string name="activity_history_title">Saved Result</string>
     <string name="result_nodata">No Data</string>
+    <string name="result_deleted">Deleted</string>
+
 
 
     <string name="license"><Data><![CDATA[Copyright (c) 2016 ccjeng@google.com<br/><br/>
