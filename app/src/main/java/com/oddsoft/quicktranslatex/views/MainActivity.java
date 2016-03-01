@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
     private String[] langShortNames;
     private String[] langLongNames;
 
-
     private Handler guiThread;
     private ExecutorService transThread;
     private Runnable updateTask;
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     private AdView adView;
 
     private Analytics ga;
-    private String mAuthToken;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
 
     private static final int DIALOG_WELCOME = 1;
     private static final int DIALOG_UPDATE = 2;
@@ -467,10 +466,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void initActionBar() {
         setSupportActionBar(toolbar);
+        /*
         toolbar.setNavigationIcon(new IconicsDrawable(this)
                 .icon(GoogleMaterial.Icon.gmd_menu)
                 .color(Color.WHITE)
-                .actionBar());
+                .actionBar());*/
     }
 
     private void initDrawer() {
@@ -526,7 +526,7 @@ public class MainActivity extends AppCompatActivity {
                 .color(Color.GRAY)
                 .sizeDp(24));
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar
                 ,R.string.app_name, R.string.app_name){
 
             @Override
@@ -660,6 +660,8 @@ public class MainActivity extends AppCompatActivity {
         if (!text.equals("") &&
                 !text.equals("..........") &&
                 !orgText.equals("")) {
+
+            ga.trackEvent(this, "Click", "Button", "Save", 0);
 
             Item item = new Item();
             item.setDatetime(new Date().getTime());
