@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.0.0\nNew Feature: Now you can save translated result and see the saved result in the app.
+    	<item>4.0.1\nImprove UI
     	</item>
 </string-array>
 </resources>

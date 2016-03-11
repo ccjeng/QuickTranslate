@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.0.0\n新功能：可將翻譯的文字儲存下來，以供日後查閱
+    	<item>4.0.1\n改善介面
     	</item>
 </string-array>
 </resources>
