@@ -466,11 +466,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initActionBar() {
         setSupportActionBar(toolbar);
-        /*
-        toolbar.setNavigationIcon(new IconicsDrawable(this)
-                .icon(GoogleMaterial.Icon.gmd_menu)
-                .color(Color.WHITE)
-                .actionBar());*/
     }
 
     private void initDrawer() {
