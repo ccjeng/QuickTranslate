@@ -1,15 +1,14 @@
 package com.oddsoft.quicktranslatex.views;
 
 import android.app.Dialog;
-import android.app.SearchManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -31,20 +30,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.client.Firebase;
-import com.google.android.gms.ads.*;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.mikepenz.aboutlibraries.Libs;
 import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
+import com.oddsoft.quicktranslatex.QuickTranslateX;
 import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.controller.Secret;
+import com.oddsoft.quicktranslatex.controller.TranslateService;
 import com.oddsoft.quicktranslatex.controller.history.HistoryDAO;
 import com.oddsoft.quicktranslatex.controller.history.Item;
 import com.oddsoft.quicktranslatex.utils.Analytics;
-import com.oddsoft.quicktranslatex.QuickTranslateX;
-import com.oddsoft.quicktranslatex.controller.TranslateService;
 import com.oddsoft.quicktranslatex.utils.Constant;
 import com.oddsoft.quicktranslatex.utils.Utils;
 
@@ -102,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Firebase.setAndroidContext(this);
+        //Firebase.setAndroidContext(this);
 
         initThreading();
         findViews();

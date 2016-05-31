@@ -1,11 +1,13 @@
 package com.oddsoft.quicktranslatex.controller;
 
 import android.util.Log;
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.Query;
-import com.firebase.client.ValueEventListener;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.oddsoft.quicktranslatex.utils.Constant;
 import com.oddsoft.quicktranslatex.utils.SecretKey;
 
@@ -20,9 +22,10 @@ public class Secret {
 
     public static void execFirebase() {
 
-        Firebase firebaseRef = new Firebase(Constant.FIREBASE_URL);
+        DatabaseReference ref = FirebaseDatabase.getInstance()
+                .getReferenceFromUrl(Constant.FIREBASE_URL);
 
-        Query queryRef = firebaseRef.child("key").orderByChild("active").equalTo(true);
+        Query queryRef = ref.child("key").orderByChild("active").equalTo(true);
 
         queryRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -48,7 +51,7 @@ public class Secret {
             }
 
             @Override
-            public void onCancelled(FirebaseError error) {
+            public void onCancelled(DatabaseError error) {
                 Log.d(TAG, "The read failed: " + error.getMessage());
             }
         });
