@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 23
@@ -15,6 +16,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        buildTypes.each {
+            it.buildConfigField 'String', 'FIREBASE_URL', FIREBASE_URL
+            it.buildConfigField 'String', 'ADMOB_QT_HISTORY', ADMOB_QT_HISTORY
         }
     }
     productFlavors {
@@ -36,7 +41,8 @@ dependencies {
     compile 'com.google.firebase:firebase-core:9.0.0'
     compile 'com.google.firebase:firebase-database:9.0.0'
     compile project(':volley')
-    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.jakewharton:butterknife:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.mikepenz:iconics-core:1.7.3@aar'
     compile 'com.mikepenz:google-material-typeface:1.2.0.1@aar'
     compile('com.mikepenz:aboutlibraries:5.2.1@aar') {

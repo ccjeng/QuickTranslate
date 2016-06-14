@@ -1,6 +1,5 @@
 package com.oddsoft.quicktranslatex.views;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,8 +12,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
-import com.mikepenz.google_material_typeface_library.GoogleMaterial;
-import com.mikepenz.iconics.IconicsDrawable;
 import com.oddsoft.quicktranslatex.QuickTranslateX;
 import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.controller.history.HistoryDAO;
@@ -25,7 +22,7 @@ import com.oddsoft.quicktranslatex.utils.Constant;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HistoryActivity extends AppCompatActivity {
@@ -33,9 +30,9 @@ public class HistoryActivity extends AppCompatActivity {
     private static final String TAG = "HistoryActivity";
     private Analytics ga;
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.listView)
+    @BindView(R.id.listView)
     ListView listView;
 
     private HistoryDAO historyDAO;

@@ -53,7 +53,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.RejectedExecutionException;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
@@ -63,15 +63,15 @@ public class MainActivity extends AppCompatActivity {
     public static final String PREF_FROM = "PREF_From";
     public static final String PREF_TO = "PREF_To";
 
-    @Bind(com.oddsoft.quicktranslatex.R.id.from_language) Spinner fromSpinner;
-    @Bind(R.id.to_language) Spinner toSpinner;
-    @Bind(R.id.original_text) EditText origText;
-    @Bind(R.id.translated_text) TextView transText;
-    @Bind(R.id.from_text) TextView fromText;
-    @Bind(R.id.navigation) NavigationView navigation;
-    @Bind(R.id.drawerlayout) DrawerLayout drawerLayout;
-    @Bind(R.id.toolbar) Toolbar toolbar;
-    @Bind(R.id.save_result) ImageButton saveResult;
+    @BindView(com.oddsoft.quicktranslatex.R.id.from_language) Spinner fromSpinner;
+    @BindView(R.id.to_language) Spinner toSpinner;
+    @BindView(R.id.original_text) EditText origText;
+    @BindView(R.id.translated_text) TextView transText;
+    @BindView(R.id.from_text) TextView fromText;
+    @BindView(R.id.navigation) NavigationView navigation;
+    @BindView(R.id.drawerlayout) DrawerLayout drawerLayout;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.save_result) ImageButton saveResult;
 
     //private boolean fuzzyPreference;
     private String searchPreference;
@@ -100,8 +100,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
-        //Firebase.setAndroidContext(this);
 
         initThreading();
         findViews();
