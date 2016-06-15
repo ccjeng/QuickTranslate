@@ -45,13 +45,13 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.mikepenz:iconics-core:1.7.3@aar'
     compile 'com.mikepenz:google-material-typeface:1.2.0.1@aar'
-    compile('com.mikepenz:aboutlibraries:5.2.1@aar') {
+    compile('com.mikepenz:aboutlibraries:5.6.7@aar') {
         transitive = true
     }
-    compile('com.mopub:mopub-sdk:4.5.1@aar') {
+    compile('com.mopub:mopub-sdk:4.7.0@aar') {
         transitive = true
     }
+    compile 'com.facebook.android:facebook-android-sdk:4.12.1'
     compile files('src/main/libs/libAdapterSDKMoPub.jar')
-    compile files('src/main/libs/AudienceNetwork.jar')
     compile files('src/main/libs/FacebookAdapter.jar')
 }
