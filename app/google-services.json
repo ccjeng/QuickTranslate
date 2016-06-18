@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "27103996767",
+    "firebase_url": "https://scorching-inferno-7900.firebaseio.com",
+    "project_id": "scorching-inferno-7900",
+    "storage_bucket": "scorching-inferno-7900.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27103996767:android:b6236e4a1dbec24f",
+        "android_client_info": {
+          "package_name": "com.oddsoft.quicktranslatex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27103996767-ki6f55nvbfcu44oria738ntoc8k9fsgk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqi6QLJ14Ou44DLKnNPh-itC0sgGuK89A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
