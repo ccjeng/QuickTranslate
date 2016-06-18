@@ -11,13 +11,16 @@
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/MyMaterialTheme" >
+        android:theme="@style/MyMaterialTheme"
+        android:backupAgent=".controller.TheBackupAgent">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.gms.analytics.globalConfigResource"
             android:resource="@xml/global_tracker" />
+        <meta-data android:name="com.google.android.backup.api_key"
+                   android:value="AEdPqrEAAAAIsQDg70uzE4eWuWI-7L1sR7gfa3cFtXv2ZmgucQ" />
 
         <activity
             android:name=".views.MainActivity"
