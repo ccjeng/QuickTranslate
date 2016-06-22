@@ -24,22 +24,21 @@
                 android:layout_height="wrap_content" />
         </android.support.design.widget.AppBarLayout>
 
+        <LinearLayout
+            android:id="@+id/adLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbarLayout"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"/>
+
         <ListView
             android:id="@+id/listView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/footerLayout"
-            android:layout_below="@+id/toolbarLayout"
+            android:layout_below="@+id/adLayout"
             android:dividerHeight="1sp" />
 
-        <LinearLayout
-            android:id="@+id/footerLayout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="bottom"
-            android:orientation="horizontal"/>
     </RelativeLayout>
 
 

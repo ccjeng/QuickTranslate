@@ -116,7 +116,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     private void adView() {
 
-        LinearLayout adBannerLayout = (LinearLayout) findViewById(R.id.footerLayout);
+        LinearLayout adBannerLayout = (LinearLayout) findViewById(R.id.adLayout);
 
         adView = new AdView(this);
         adView.setAdUnitId(Constant.ADMOB_QT_HISTORY);

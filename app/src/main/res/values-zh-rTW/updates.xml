@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.0.3\n修正一些錯誤
+    	<item>4.0.4\n自動備份「已儲存的紀錄」到雲端，當App重新安裝時會自動還原
     	</item>
 </string-array>
 </resources>
