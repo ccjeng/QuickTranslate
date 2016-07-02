@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.oddsoft.quicktranslatex.QuickTranslateX;
+import com.oddsoft.quicktranslatex.utils.Utils;
 
 import org.json.JSONObject;
 
@@ -11,7 +12,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -45,7 +45,7 @@ public class OAuth extends AsyncTask<String, Void, String> {
         // Construct content
         String content = "grant_type=client_credentials";
         content += "&client_id=" + client_id;
-        content += "&client_secret=" + URLEncoder.encode(client_secret);
+        content += "&client_secret=" + Utils.URLEncoder(client_secret);
         content += "&scope=http://api.microsofttranslator.com";
 
         try {

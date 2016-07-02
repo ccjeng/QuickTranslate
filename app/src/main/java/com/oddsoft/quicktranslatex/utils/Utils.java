@@ -15,6 +15,9 @@ import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 public class Utils {
     public static final String TAG = "Utils";
     private static String mLastVersionRun;
@@ -103,6 +106,20 @@ public class Utils {
         } else {
             return false;
         }
+
+    }
+
+
+    public static String URLEncoder(String input) {
+        String encoded_input = input;
+
+        try {
+            encoded_input = URLEncoder.encode(input, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return encoded_input;
 
     }
 

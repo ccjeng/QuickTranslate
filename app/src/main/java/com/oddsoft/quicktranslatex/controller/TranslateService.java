@@ -1,7 +1,5 @@
 package com.oddsoft.quicktranslatex.controller;
 
-import java.io.StringReader;
-import java.net.URLEncoder;
 import android.util.Log;
 
 import com.android.volley.Request;
@@ -10,13 +8,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.oddsoft.quicktranslatex.QuickTranslateX;
+import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.utils.Utils;
 import com.oddsoft.quicktranslatex.views.MainActivity;
-import com.oddsoft.quicktranslatex.R;
-import com.oddsoft.quicktranslatex.QuickTranslateX;
 
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
+
+import java.io.StringReader;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -25,9 +25,6 @@ public class TranslateService {
     private static final String TAG = "TranslateService";
     private final MainActivity content;
     private final String original, from, to;
-
-    private String client_secret;
-    private String client_id;
 
     private RequestQueue queue;
 
@@ -109,10 +106,10 @@ public class TranslateService {
     private void callTranslate(String accessToken) {
         //Call Microsoft Translate
         String urlStr = "http://api.microsofttranslator.com/v2/Http.svc/Translate?text="
-                + URLEncoder.encode(original)
+                + Utils.URLEncoder(original)
                 + "&from=" + from
                 + "&to=" + to;
-        urlStr = urlStr + "&appId=" + URLEncoder.encode("Bearer "+accessToken);
+        urlStr = urlStr + "&appId=" + Utils.URLEncoder("Bearer "+accessToken);
 
         Log.d(TAG, urlStr);
         final StringRequest request1 = new StringRequest(Request.Method.GET
