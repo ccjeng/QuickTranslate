@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 24
+    buildToolsVersion "23.0.2"
     defaultConfig {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 16
@@ -43,14 +43,14 @@ dependencies {
     compile files('src/main/libs/libAdapterSDKMoPub.jar')
     compile files('src/main/libs/FacebookAdapter.jar')
 
-    compile 'com.google.android.gms:play-services-analytics:9.2.0'
-    compile 'com.google.android.gms:play-services-ads:9.2.0'
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:design:23.4.0'
+    compile 'com.google.android.gms:play-services-analytics:9.2.1'
+    compile 'com.google.android.gms:play-services-ads:9.2.1'
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
     compile 'com.google.firebase:firebase-core:9.2.0'
     compile 'com.google.firebase:firebase-database:9.2.0'
     compile 'com.jakewharton:butterknife:8.0.1'
-    compile 'com.mikepenz:iconics-core:2.5.11@aar'
+    compile "com.mikepenz:iconics-core:2.7.1@aar"
     compile 'com.mikepenz:google-material-typeface:2.2.0.1.original@aar'
     compile 'com.facebook.android:facebook-android-sdk:4.12.1'
     compile 'com.android.volley:volley:1.0.0'
