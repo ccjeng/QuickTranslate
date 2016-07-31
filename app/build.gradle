@@ -3,13 +3,13 @@ apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "24.0.1"
     defaultConfig {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 35
-        versionName '4.0.5.070216QT'
+        versionCode 36
+        versionName '4.0.6.073116QT'
     }
     buildTypes {
         release {
@@ -51,7 +51,7 @@ dependencies {
     compile 'com.google.firebase:firebase-database:9.2.0'
     compile 'com.jakewharton:butterknife:8.0.1'
     compile "com.mikepenz:iconics-core:2.7.1@aar"
-    compile 'com.mikepenz:google-material-typeface:2.2.0.1.original@aar'
+    compile 'com.mikepenz:google-material-typeface:2.2.0.2.original@aar'
     compile 'com.facebook.android:facebook-android-sdk:4.12.1'
     compile 'com.android.volley:volley:1.0.0'
 }

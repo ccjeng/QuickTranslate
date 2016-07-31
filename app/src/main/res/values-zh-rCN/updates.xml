@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.0.4\n改善查询效能
+    	<item>4.0.6\n改善查询效能
     	</item>
 </string-array>
 </resources>
