@@ -8,8 +8,8 @@ android {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 36
-        versionName '4.0.6.073116QT'
+        versionCode 37
+        versionName '4.0.7.081316QT'
     }
     buildTypes {
         release {
@@ -18,6 +18,7 @@ android {
         }
         buildTypes.each {
             it.buildConfigField 'String', 'FIREBASE_URL', FIREBASE_URL
+            it.buildConfigField 'String', 'ADMOB_QT_MAIN', ADMOB_QT_MAIN
             it.buildConfigField 'String', 'ADMOB_QT_HISTORY', ADMOB_QT_HISTORY
         }
     }
@@ -37,23 +38,23 @@ dependencies {
     compile('com.mikepenz:aboutlibraries:5.6.7@aar') {
         transitive = true
     }
+    compile 'com.google.android.gms:play-services-analytics:9.4.0'
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
+    compile 'com.google.firebase:firebase-core:9.4.0'
+    compile 'com.google.firebase:firebase-database:9.4.0'
+    compile 'com.google.firebase:firebase-ads:9.4.0'
+    compile 'com.google.firebase:firebase-crash:9.4.0'
+    compile 'com.jakewharton:butterknife:8.0.1'
+    compile 'com.mikepenz:iconics-core:2.7.1@aar'
+    compile 'com.mikepenz:google-material-typeface:2.2.0.2.original@aar'
+    compile 'com.android.volley:volley:1.0.0'
     compile('com.mopub:mopub-sdk:4.7.0@aar') {
         transitive = true
     }
     compile files('src/main/libs/libAdapterSDKMoPub.jar')
+    compile 'com.facebook.android:audience-network-sdk:4.14.1'
     compile files('src/main/libs/FacebookAdapter.jar')
-
-    compile 'com.google.android.gms:play-services-analytics:9.2.1'
-    compile 'com.google.android.gms:play-services-ads:9.2.1'
-    compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'com.android.support:design:24.1.1'
-    compile 'com.google.firebase:firebase-core:9.2.0'
-    compile 'com.google.firebase:firebase-database:9.2.0'
-    compile 'com.jakewharton:butterknife:8.0.1'
-    compile "com.mikepenz:iconics-core:2.7.1@aar"
-    compile 'com.mikepenz:google-material-typeface:2.2.0.2.original@aar'
-    compile 'com.facebook.android:facebook-android-sdk:4.12.1'
-    compile 'com.android.volley:volley:1.0.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -29,14 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:orientation="horizontal">
-
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/adView"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                app:adSize="SMART_BANNER"
-                app:adUnitId="ca-app-pub-6914084100751028/3864312812"/>
         </LinearLayout>
 
         <TableLayout

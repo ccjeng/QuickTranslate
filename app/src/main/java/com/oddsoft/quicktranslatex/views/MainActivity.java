@@ -26,11 +26,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.mikepenz.aboutlibraries.Libs;
@@ -189,8 +191,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void adView() {
+        LinearLayout adBannerLayout = (LinearLayout) findViewById(R.id.Ad);
 
-        adView = (AdView) findViewById(R.id.adView);
+        adView =  new AdView(this); //(AdView) findViewById(R.id.adView);
+        adView.setAdUnitId(Constant.ADMOB_QT_MAIN);
+        adView.setAdSize(AdSize.SMART_BANNER);
+        adBannerLayout.addView(adView);
+
         AdRequest adRequest;
         if (QuickTranslateX.APPDEBUG) {
             adRequest = new AdRequest.Builder()
@@ -334,6 +341,7 @@ public class MainActivity extends AppCompatActivity {
                         );
 
                         //transPending = transThread.submit(translateTask);
+                        //transPending = transThread.submit(translateTask);
                     } catch (RejectedExecutionException e) {
                         // Unable to start new task
                         transText.setText(R.string.translation_error);
@@ -432,17 +440,6 @@ public class MainActivity extends AppCompatActivity {
         Uri uri;
 
         if (searchPreference.equals("Google")) {
-            /*
-            Intent search = new Intent(Intent.ACTION_WEB_SEARCH);
-            search.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            search.putExtra(SearchManager.QUERY, transText.getText());
-            final Bundle appData = getIntent().getBundleExtra(SearchManager.APP_DATA);
-
-            if (appData != null) {
-                search.putExtra(SearchManager.APP_DATA, appData);
-            }
-            startActivity(search);
-            */
             uri = Uri.parse("http://www.google.com/search?q="
                     + transText.getText().toString().replace(" ", "+"));
             Log.d(TAG, "Google uri=" + uri.toString());
@@ -547,11 +544,15 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
+
         MenuItem menuItem1 = menu.findItem(R.id.clear_button);
-        menuItem1.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_delete).actionBar().color(Color.WHITE));
+        menuItem1.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_delete_forever).actionBar().color(Color.WHITE));
 
         MenuItem menuItem2 = menu.findItem(R.id.change_button);
         menuItem2.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_loop).actionBar().color(Color.WHITE));
+
+        MenuItem menuItem5 = menu.findItem(R.id.history_button);
+        menuItem5.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_history).actionBar().color(Color.WHITE));
 
         MenuItem menuItem3 = menu.findItem(R.id.search_button);
         menuItem3.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_search).actionBar().color(Color.WHITE));
@@ -578,6 +579,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.change_button:
                 ga.trackEvent(this, "Click", "Button", "Change", 0);
                 switchLanguage();
+                break;
+            case R.id.history_button:
+                ga.trackEvent(this, "Click", "Button", "History", 0);
+                startActivity(new Intent(MainActivity.this, HistoryActivity.class));
                 break;
             case R.id.search_button:
                 ga.trackEvent(this, "Click", "Button", "Search", 0);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.0.6\n改善查詢效能
+    	<item>4.0.7\n增加「檢視更新記錄」按鈕於工具列
     	</item>
 </string-array>
 </resources>

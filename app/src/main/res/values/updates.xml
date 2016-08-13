@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.0.6\nPerformance Improvement
+    	<item>4.0.7\nAdd "View Saved Result" button on Toolbar
     	</item>
 </string-array>
 </resources>

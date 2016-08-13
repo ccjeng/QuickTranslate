@@ -3,14 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.MainActivity" >
 
+    <item android:id="@+id/change_button"
+          android:title="@string/change_title"
+          android:orderInCategory="100"
+          app:showAsAction="always"/>
     <item android:id="@+id/clear_button"
         android:title="@string/clear_title"
         android:orderInCategory="100"
         app:showAsAction="always"/>
-    <item android:id="@+id/change_button"
-        android:title="@string/change_title"
-        android:orderInCategory="100"
-        app:showAsAction="always"/>
+    <item android:id="@+id/history_button"
+          android:title="@string/activity_history_title"
+          android:orderInCategory="100"
+          app:showAsAction="always"/>
     <item android:id="@+id/search_button"
         android:title="@string/search_title"
         android:orderInCategory="100"
