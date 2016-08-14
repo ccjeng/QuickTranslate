@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.0.7\nAdd "View Saved Result" button on Toolbar
+    	<item>4.0.8\nResolve cache size issue
     	</item>
 </string-array>
 </resources>

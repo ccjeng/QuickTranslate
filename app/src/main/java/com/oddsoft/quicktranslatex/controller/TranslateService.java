@@ -7,7 +7,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.oddsoft.quicktranslatex.QuickTranslateX;
 import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.utils.Utils;
@@ -41,8 +40,6 @@ public class TranslateService {
 
         authToken = QuickTranslateX.getAuthToken();
         isTokenValid = QuickTranslateX.getAuthState();
-
-        queue = Volley.newRequestQueue(content);
 
         try {
             String trans = doTranslate(original, from, to);
@@ -151,7 +148,8 @@ public class TranslateService {
         });
 
         //request.setPriority(Request.Priority.HIGH);
-        queue.add(request1);
+        VolleySingleton.getInstance(content).addToRequestQueue(request1);
+
 
     }
 }

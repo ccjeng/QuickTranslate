@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.0.7\n增加「检视更新记录」按钮於工具列
+    	<item>4.0.8\n修正快取档案过大的问题
     	</item>
 </string-array>
 </resources>
