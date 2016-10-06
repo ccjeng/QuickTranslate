@@ -1,27 +1,41 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".views.MainActivity" >
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.MainActivity">
 
-    <item android:id="@+id/change_button"
-          android:title="@string/change_title"
-          android:orderInCategory="100"
-          app:showAsAction="always"/>
-    <item android:id="@+id/clear_button"
+    <item
+        android:id="@+id/change_button"
+        android:icon="@drawable/ic_loop_white_24px"
+        android:orderInCategory="100"
+        android:title="@string/change_title"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/clear_button"
+        android:icon="@drawable/ic_clear_white_24px"
+        android:orderInCategory="100"
         android:title="@string/clear_title"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/history_button"
+        android:icon="@drawable/ic_history_white_24px"
         android:orderInCategory="100"
-        app:showAsAction="always"/>
-    <item android:id="@+id/history_button"
-          android:title="@string/activity_history_title"
-          android:orderInCategory="100"
-          app:showAsAction="always"/>
-    <item android:id="@+id/search_button"
+        android:title="@string/activity_history_title"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/search_button"
+        android:icon="@drawable/ic_search_white_24px"
+        android:orderInCategory="100"
         android:title="@string/search_title"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/share_button"
+        android:icon="@drawable/ic_share_white_24px"
         android:orderInCategory="100"
-        app:showAsAction="ifRoom"/>
-    <item android:id="@+id/share_button"
         android:title="@string/share_title"
-        android:orderInCategory="100"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
 </menu>

@@ -3,13 +3,13 @@ package com.oddsoft.quicktranslatex.views;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -37,8 +37,6 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.mikepenz.aboutlibraries.Libs;
 import com.mikepenz.aboutlibraries.LibsBuilder;
-import com.mikepenz.google_material_typeface_library.GoogleMaterial;
-import com.mikepenz.iconics.IconicsDrawable;
 import com.oddsoft.quicktranslatex.QuickTranslateX;
 import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.controller.Secret;
@@ -112,10 +110,7 @@ public class MainActivity extends AppCompatActivity {
         restorePrefs();
 
         saveResult.setVisibility(View.GONE);
-        saveResult.setBackground(new IconicsDrawable(this)
-                .icon(GoogleMaterial.Icon.gmd_save)
-                .color(Color.GRAY));
-
+        saveResult.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_save_black_24px));
         saveResult.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
@@ -499,22 +494,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //change navigation drawer item icons
-        navigation.getMenu().findItem(R.id.navHistory).setIcon(new IconicsDrawable(this)
-                .icon(GoogleMaterial.Icon.gmd_history)
-                .color(Color.GRAY)
-                .sizeDp(24));
-
-        navigation.getMenu().findItem(R.id.navSetting).setIcon(new IconicsDrawable(this)
-                .icon(GoogleMaterial.Icon.gmd_settings)
-                .color(Color.GRAY)
-                .sizeDp(24));
-
-        navigation.getMenu().findItem(R.id.navAbout).setIcon(new IconicsDrawable(this)
-                .icon(GoogleMaterial.Icon.gmd_info)
-                .color(Color.GRAY)
-                .sizeDp(24));
-
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar
                 ,R.string.app_name, R.string.app_name){
 
@@ -543,23 +522,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
-
-        MenuItem menuItem1 = menu.findItem(R.id.clear_button);
-        menuItem1.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_delete_forever).actionBar().color(Color.WHITE));
-
-        MenuItem menuItem2 = menu.findItem(R.id.change_button);
-        menuItem2.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_loop).actionBar().color(Color.WHITE));
-
-        MenuItem menuItem5 = menu.findItem(R.id.history_button);
-        menuItem5.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_history).actionBar().color(Color.WHITE));
-
-        MenuItem menuItem3 = menu.findItem(R.id.search_button);
-        menuItem3.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_search).actionBar().color(Color.WHITE));
-
-        MenuItem menuItem4 = menu.findItem(R.id.share_button);
-        menuItem4.setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_share).actionBar().color(Color.WHITE));
-
         return true;
     }
 
@@ -599,11 +561,7 @@ public class MainActivity extends AppCompatActivity {
     protected final Dialog onCreateDialog(final int id) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setIcon(new IconicsDrawable(this)
-                .icon(GoogleMaterial.Icon.gmd_info)
-                .color(Color.GRAY)
-                .sizeDp(24));
-
+        builder.setIcon(R.drawable.ic_info_black_24px);
         builder.setCancelable(true);
         builder.setPositiveButton(android.R.string.ok, null);
 

@@ -1,7 +1,7 @@
 package com.oddsoft.quicktranslatex.controller.history;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mikepenz.google_material_typeface_library.GoogleMaterial;
-import com.mikepenz.iconics.IconicsDrawable;
 import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.views.HistoryActivity;
 
@@ -70,9 +68,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         toIdView.setText(item.getToId());
         toTextView.setText(item.getToText());
 
-        deleteButton.setBackground(new IconicsDrawable(context)
-                .icon(GoogleMaterial.Icon.gmd_delete)
-                .color(Color.GRAY));
+        deleteButton.setBackground(ContextCompat.getDrawable(context, R.drawable.ic_delete_black_24px));
 
         //onClick for image button inside list view
         deleteButton.setOnClickListener(new View.OnClickListener() {
