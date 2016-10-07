@@ -5,6 +5,7 @@
 
     <string-array name="languages">
         <item>English</item>
+        <item>Afrikaans</item>
         <item>Arabic</item>
         <item>Bosnian (Latin)</item>
         <item>Bulgarian</item>
@@ -59,6 +60,7 @@
     </string-array>
     <string-array name="languages_values">
         <item>en</item>
+        <item>af</item>
         <item>ar</item>
         <item>bs-Latn</item>
         <item>bg</item>
@@ -82,7 +84,7 @@
         <item>id</item>
         <item>it</item>
         <item>ja</item>
-           <item>sw</item>
+        <item>sw</item>
         <item>tlh</item>
         <item>tlh-Qaak</item>
         <item>ko</item>

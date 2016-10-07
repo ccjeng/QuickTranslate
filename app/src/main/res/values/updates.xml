@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.0.8\nResolve cache size issue
+    	<item>4.1.0\nAdd new language: Afrikaans
     	</item>
 </string-array>
 </resources>

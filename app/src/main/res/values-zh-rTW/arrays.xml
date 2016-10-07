@@ -2,6 +2,7 @@
 <resources>
     <string-array name="languages">
         <item>英文</item>
+        <item>南非語</item>
         <item>阿拉伯語</item>
         <item>波斯尼亞（拉丁）</item>
         <item>保加利亞語</item>
