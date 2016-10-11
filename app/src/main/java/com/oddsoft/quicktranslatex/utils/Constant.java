@@ -14,7 +14,7 @@ public class Constant {
     public static final String FIREBASE_URL = BuildConfig.FIREBASE_URL;
 
     //Admob
-    public static final String ADMOB_TEST_DEVICE = "E0D24CC8E2D30B8E918C6BA5B7754465";
+    public static final String ADMOB_TEST_DEVICE = "E0D24CC8E2D30B8E918C6BA5B7754465"; //1B583A23DC5020F5F1C46451CBF42359
     public static final String ADMOB_QT_MAIN = BuildConfig.ADMOB_QT_MAIN;
     public static final String ADMOB_QT_HISTORY = BuildConfig.ADMOB_QT_HISTORY;
 

@@ -3,7 +3,7 @@ package com.oddsoft.quicktranslatex.controller;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.oddsoft.quicktranslatex.QuickTranslateX;
+import com.oddsoft.quicktranslatex.views.base.QuickTranslateX;
 import com.oddsoft.quicktranslatex.utils.Utils;
 
 import org.json.JSONObject;

@@ -130,6 +130,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mopub/mopub-sdk-native-video/4.9.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mopub/mopub-sdk-rewardedvideo/4.9.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mopub/mopub-sdk/4.9.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/uk.co.chrisjenx/calligraphy/2.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
@@ -147,51 +148,52 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="support-compat-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-24.2.1" level="project" />
-    <orderEntry type="library" exported="" name="animated-vector-drawable-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-base-9.6.1" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-rewardedvideo-4.9.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-database-9.6.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-ads-9.6.1" level="project" />
+    <orderEntry type="library" exported="" name="mopub-sdk-banner-4.9.0" level="project" />
+    <orderEntry type="library" exported="" name="firebase-database-connection-9.6.1" level="project" />
+    <orderEntry type="library" exported="" name="FacebookAdapter" level="project" />
+    <orderEntry type="library" exported="" name="firebase-common-9.6.1" level="project" />
+    <orderEntry type="library" exported="" name="firebase-iid-9.6.1" level="project" />
+    <orderEntry type="library" exported="" name="design-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-gass-9.6.1" level="project" />
+    <orderEntry type="library" exported="" name="mopub-sdk-native-video-4.9.0" level="project" />
+    <orderEntry type="library" exported="" name="support-core-ui-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="recyclerview-v7-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="appcompat-v7-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="aboutlibraries-5.6.7" level="project" />
+    <orderEntry type="library" exported="" name="play-services-ads-9.6.1" level="project" />
+    <orderEntry type="library" exported="" name="cardview-v7-23.4.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-tasks-9.6.1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-ads-lite-9.6.1" level="project" />
+    <orderEntry type="library" exported="" name="butterknife-8.0.1" level="project" />
+    <orderEntry type="library" exported="" name="butterknife-annotations-8.0.1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-analytics-impl-9.6.1" level="project" />
+    <orderEntry type="library" exported="" name="animated-vector-drawable-24.2.1" level="project" />
+    <orderEntry type="library" exported="" name="mopub-sdk-rewardedvideo-4.9.0" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-base-4.9.0" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-4.9.0" level="project" />
     <orderEntry type="library" exported="" name="audience-network-sdk-4.15.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-impl-9.6.1" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-banner-4.9.0" level="project" />
-    <orderEntry type="library" exported="" name="firebase-database-connection-9.6.1" level="project" />
-    <orderEntry type="library" exported="" name="FacebookAdapter" level="project" />
     <orderEntry type="library" exported="" name="firebase-core-9.6.1" level="project" />
-    <orderEntry type="library" exported="" name="firebase-common-9.6.1" level="project" />
-    <orderEntry type="library" exported="" name="firebase-iid-9.6.1" level="project" />
-    <orderEntry type="library" exported="" name="design-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-media-compat-24.2.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-gass-9.6.1" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-native-video-4.9.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-analytics-9.6.1" level="project" />
     <orderEntry type="library" exported="" name="exoplayer-r1.5.8" level="project" />
-    <orderEntry type="library" exported="" name="support-core-ui-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="mopub-volley-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="libAdapterSDKMoPub" level="project" />
-    <orderEntry type="library" exported="" name="recyclerview-v7-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-native-static-4.9.0" level="project" />
-    <orderEntry type="library" exported="" name="appcompat-v7-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-utils-24.2.1" level="project" />
-    <orderEntry type="library" exported="" name="aboutlibraries-5.6.7" level="project" />
     <orderEntry type="library" exported="" name="fastadapter-1.5.2" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-9.6.1" level="project" />
-    <orderEntry type="library" exported="" name="cardview-v7-23.4.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tasks-9.6.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-9.6.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-24.2.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-lite-9.6.1" level="project" />
     <orderEntry type="library" exported="" name="volley-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-clearcut-9.6.1" level="project" />
-    <orderEntry type="library" exported="" name="butterknife-8.0.1" level="project" />
-    <orderEntry type="library" exported="" name="butterknife-annotations-8.0.1" level="project" />
+    <orderEntry type="library" exported="" name="calligraphy-2.2.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-9.6.1" level="project" />
     <orderEntry type="library" exported="" name="iconics-core-2.6.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-analytics-impl-9.6.1" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-interstitial-4.9.0" level="project" />
   </component>
 </module>

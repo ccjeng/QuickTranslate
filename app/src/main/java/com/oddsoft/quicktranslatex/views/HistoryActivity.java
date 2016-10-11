@@ -1,7 +1,6 @@
 package com.oddsoft.quicktranslatex.views;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
@@ -11,21 +10,21 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.oddsoft.quicktranslatex.QuickTranslateX;
 import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.controller.history.HistoryDAO;
 import com.oddsoft.quicktranslatex.controller.history.Item;
 import com.oddsoft.quicktranslatex.controller.history.ItemAdapter;
 import com.oddsoft.quicktranslatex.utils.Analytics;
 import com.oddsoft.quicktranslatex.utils.Constant;
+import com.oddsoft.quicktranslatex.views.base.BaseActivity;
+import com.oddsoft.quicktranslatex.views.base.QuickTranslateX;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HistoryActivity extends AppCompatActivity {
+public class HistoryActivity extends BaseActivity {
 
     private static final String TAG = "HistoryActivity";
     private Analytics ga;
@@ -63,17 +62,6 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        GoogleAnalytics.getInstance(this).reportActivityStart(this);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        GoogleAnalytics.getInstance(this).reportActivityStop(this);
-    }
 
     @Override
     protected void onPause() {

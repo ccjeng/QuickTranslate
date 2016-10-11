@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.oddsoft.quicktranslatex.QuickTranslateX;
+import com.oddsoft.quicktranslatex.views.base.QuickTranslateX;
 
 /**
  * Created by andycheng on 2015/6/28.

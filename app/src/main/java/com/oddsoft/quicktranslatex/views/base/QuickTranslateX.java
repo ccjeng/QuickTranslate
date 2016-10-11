@@ -1,13 +1,17 @@
-package com.oddsoft.quicktranslatex;
+package com.oddsoft.quicktranslatex.views.base;
 
 import android.app.Application;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Logger;
 import com.google.android.gms.analytics.Tracker;
+import com.oddsoft.quicktranslatex.BuildConfig;
+import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.utils.Constant;
 
 import java.util.HashMap;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by andycheng on 2015/6/28.
@@ -16,12 +20,15 @@ public class QuickTranslateX extends Application {
 
     // Debugging switch
     public static final boolean APPDEBUG = BuildConfig.DEBUG;
-    public static final String TAG = QuickTranslateX.class.getSimpleName();
-
 
     @Override
     public void onCreate() {
         super.onCreate();
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Roboto-Light.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
     }
 
     private static Boolean mAuthState = false;

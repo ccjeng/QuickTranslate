@@ -7,7 +7,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.oddsoft.quicktranslatex.QuickTranslateX;
+import com.oddsoft.quicktranslatex.views.base.QuickTranslateX;
 import com.oddsoft.quicktranslatex.R;
 import com.oddsoft.quicktranslatex.utils.Utils;
 import com.oddsoft.quicktranslatex.views.MainActivity;

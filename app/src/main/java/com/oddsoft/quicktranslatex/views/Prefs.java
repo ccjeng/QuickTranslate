@@ -4,16 +4,16 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.oddsoft.quicktranslatex.R;
+import com.oddsoft.quicktranslatex.views.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Prefs extends AppCompatActivity {
+public class Prefs extends BaseActivity {
 
 	@BindView(R.id.toolbar)
 	Toolbar toolbar;
