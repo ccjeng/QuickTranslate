@@ -1,6 +1,5 @@
 package com.oddsoft.quicktranslatex.views;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -12,7 +11,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -44,6 +42,7 @@ import com.oddsoft.quicktranslatex.utils.Constant;
 import com.oddsoft.quicktranslatex.utils.Utils;
 import com.oddsoft.quicktranslatex.views.base.BaseActivity;
 import com.oddsoft.quicktranslatex.views.base.QuickTranslateX;
+import com.oddsoft.quicktranslatex.views.dialog.WelcomeDialog;
 
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
@@ -87,9 +86,6 @@ public class MainActivity extends BaseActivity {
 
     private Analytics ga;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-
-    private static final int DIALOG_WELCOME = 1;
-    private static final int DIALOG_UPDATE = 2;
 
     private HistoryDAO historyDAO;
 
@@ -136,7 +132,18 @@ public class MainActivity extends BaseActivity {
         ga.trackerPage(this);
 
         if (Utils.newVersionInstalled(this)) {
-            this.showDialog(DIALOG_UPDATE);
+
+            String[] changes = getResources().getStringArray(R.array.updates);
+            StringBuilder buf = new StringBuilder();
+            for (int i = 0; i < changes.length; i++) {
+                buf.append("\n\n");
+                buf.append(changes[i]);
+            }
+            String message = buf.toString().trim();
+
+            WelcomeDialog dialog = WelcomeDialog.newInstance(getString(R.string.changelog_title)
+                    , message);
+            dialog.show(getSupportFragmentManager(), dialog.getClass().getName());
         }
     }
 
@@ -538,34 +545,6 @@ public class MainActivity extends BaseActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    protected final Dialog onCreateDialog(final int id) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        builder.setIcon(R.drawable.ic_info_black_24px);
-        builder.setCancelable(true);
-        builder.setPositiveButton(android.R.string.ok, null);
-
-        //final Context context = this;
-
-        switch (id) {
-            // case DIALOG_WELCOME:
-            //     builder.setTitle(getResources().getString(R.string.welcome_title));
-            //     builder.setMessage(getResources().getString(R.string.welcome_message));
-            //     break;
-            case DIALOG_UPDATE:
-                builder.setTitle(getString(R.string.changelog_title));
-                final String[] changes = getResources().getStringArray(R.array.updates);
-                final StringBuilder buf = new StringBuilder();
-                for (int i = 0; i < changes.length; i++) {
-                    buf.append("\n\n");
-                    buf.append(changes[i]);
-                }
-                builder.setMessage(buf.toString().trim());
-                break;
-        }
-        return builder.create();
     }
 
     //Handle the Incoming Content
