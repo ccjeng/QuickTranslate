@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.2.0\n改善介面
+    	<item>4.2.1\n修復搜尋的錯誤
     	</item>
 </string-array>
 </resources>

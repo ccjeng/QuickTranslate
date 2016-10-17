@@ -70,8 +70,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.save_result) ImageButton saveResult;
 
-    //private boolean fuzzyPreference;
-    private String searchPreference;
 
     private TextWatcher textWatcher;
     private AdapterView.OnItemSelectedListener itemListener;
@@ -397,6 +395,7 @@ public class MainActivity extends BaseActivity {
     }
 
     // Get preferences
+    /*
     private void getPrefs() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         //fuzzyPreference = prefs.getBoolean("fuzzy", false);
@@ -412,7 +411,7 @@ public class MainActivity extends BaseActivity {
             //fromText.setVisibility(View.VISIBLE);
             //changeButton.setVisibility(View.VISIBLE);
         }
-    }
+    }*/
 
     private void share() {
         final Intent intent = new Intent(Intent.ACTION_SEND);
@@ -423,8 +422,10 @@ public class MainActivity extends BaseActivity {
     }
 
     private void search() {
-        Log.d(TAG, "searchPreference=" + searchPreference);
         Uri uri;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String searchPreference = prefs.getString("search", "Google");
 
         if (searchPreference.equals("Google")) {
             uri = Uri.parse("http://www.google.com/search?q="

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>4.2.0\n1.Enhance UI\n2.Enable Move App to SD card function (only works when your device support it)
+    	<item>4.2.1\nFix error on Search button
     	</item>
 </string-array>
 </resources>
