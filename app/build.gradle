@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 41
-        versionName '4.2.1.101716QT'
+        versionCode 42
+        versionName '4.2.2.110616QT'
     }
     buildTypes {
         release {
@@ -35,20 +35,20 @@ android {
 dependencies {
     //compile fileTree(include: ['*.jar'], dir: 'libs')
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
-    compile('com.mikepenz:aboutlibraries:5.6.7@aar') { transitive = true }
-    compile 'com.google.android.gms:play-services-analytics:9.6.1'
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:design:24.2.1'
-    compile 'com.google.firebase:firebase-core:9.6.1'
-    compile 'com.google.firebase:firebase-database:9.6.1'
-    compile 'com.google.firebase:firebase-ads:9.6.1'
-    releaseCompile 'com.google.firebase:firebase-crash:9.6.1'
     compile 'com.jakewharton:butterknife:8.0.1'
+    compile('com.mikepenz:aboutlibraries:5.8.5@aar') { transitive = true }
+    compile 'com.google.android.gms:play-services-analytics:9.8.0'
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:design:25.0.0'
+    compile 'com.google.firebase:firebase-core:9.8.0'
+    compile 'com.google.firebase:firebase-database:9.8.0'
+    compile 'com.google.firebase:firebase-ads:9.8.0'
+    releaseCompile 'com.google.firebase:firebase-crash:9.8.0'
     compile 'com.android.volley:volley:1.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
-    compile('com.mopub:mopub-sdk:4.9.0@aar') { transitive = true }
+    compile('com.mopub:mopub-sdk:4.10.0@aar') { transitive = true }
     compile files('src/main/libs/libAdapterSDKMoPub.jar')
-    compile 'com.facebook.android:audience-network-sdk:4.15.0'
+    compile 'com.facebook.android:audience-network-sdk:4.17.0'
     compile files('src/main/libs/FacebookAdapter.jar')
 }
 
