@@ -18,4 +18,7 @@ public class Constant {
     public static final String ADMOB_QT_MAIN = BuildConfig.ADMOB_QT_MAIN;
     public static final String ADMOB_QT_HISTORY = BuildConfig.ADMOB_QT_HISTORY;
 
+    public static final String BAIDU_APPID = BuildConfig.BAIDU_APPID;
+    public static final String BAIDU_KEY = BuildConfig.BAIDU_KEY;
+    public static final String BAIDU_TRANS_API_HOST = "http://api.fanyi.baidu.com/api/trans/vip/translate";
 }

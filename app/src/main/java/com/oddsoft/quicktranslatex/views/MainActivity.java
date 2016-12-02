@@ -33,8 +33,7 @@ import com.google.android.gms.ads.AdView;
 import com.mikepenz.aboutlibraries.Libs;
 import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.oddsoft.quicktranslatex.R;
-import com.oddsoft.quicktranslatex.controller.Secret;
-import com.oddsoft.quicktranslatex.controller.TranslateService;
+import com.oddsoft.quicktranslatex.controller.TranslateServiceBaidu;
 import com.oddsoft.quicktranslatex.controller.history.HistoryDAO;
 import com.oddsoft.quicktranslatex.controller.history.Item;
 import com.oddsoft.quicktranslatex.utils.Analytics;
@@ -56,7 +55,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseActivity {
 
     private static final String TAG = "QuickTranslate";
-    public static final String PREF = "TRANS";
+    public static final String PREF = "TRANS_Baidu";
     public static final String PREF_FROM = "PREF_From";
     public static final String PREF_TO = "PREF_To";
 
@@ -118,7 +117,7 @@ public class MainActivity extends BaseActivity {
         historyDAO = new HistoryDAO(this);
 
         if (Utils.isNetworkConnected(this)) {
-            Secret.execFirebase();
+            //Secret.execFirebase();
             incomingContent();
             adView();
         } else {
@@ -200,12 +199,8 @@ public class MainActivity extends BaseActivity {
      */
     private void findViews() {
 
-        langShortNames = getResources().getStringArray(R.array.languages_values);
-        langLongNames = getResources().getStringArray(R.array.languages);
-
-        // Font
-        //transText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf"));
-        //origText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf"));
+        langShortNames = getResources().getStringArray(R.array.baidu_languages_values);
+        langLongNames = getResources().getStringArray(R.array.baidu_languages);
 
     }
 
@@ -213,7 +208,7 @@ public class MainActivity extends BaseActivity {
     private void restorePrefs() {
         SharedPreferences settings = getSharedPreferences(PREF, 0);
         Integer pref_from = settings.getInt(PREF_FROM, 0);
-        Integer pref_to = settings.getInt(PREF_TO, 6);
+        Integer pref_to = settings.getInt(PREF_TO, 1);
         if (!"".equals(pref_from)) {
             fromSpinner.setSelection(pref_from);
             toSpinner.setSelection(pref_to);
@@ -227,7 +222,7 @@ public class MainActivity extends BaseActivity {
         // Spinner list comes from a resource,
         // Spinner user interface uses standard layouts
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this, R.array.languages,
+                this, R.array.baidu_languages,
                 android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);
@@ -286,11 +281,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    /**
-     * Initialize multi-threading. There are two threads: 1) The main
-     * graphical user interface thread already started by Android,
-     * and 2) The translate thread, which we start using an executor.
-     */
+
     private void initThreading() {
         guiThread = new Handler();
         transThread = Executors.newSingleThreadExecutor();
@@ -317,8 +308,7 @@ public class MainActivity extends BaseActivity {
 
                         ga.trackEvent(MainActivity.this, "Button", "Language", getLang(fromSpinner) + " - " + getLang(toSpinner), 0);
 
-                        TranslateService translateTask;
-                        translateTask = new TranslateService(
+                        TranslateServiceBaidu translateTask = new TranslateServiceBaidu(
                                 MainActivity.this,
                                 original,
                                 getLang(fromSpinner),

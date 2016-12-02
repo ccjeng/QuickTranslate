@@ -20,6 +20,8 @@ android {
             it.buildConfigField 'String', 'FIREBASE_URL', FIREBASE_URL
             it.buildConfigField 'String', 'ADMOB_QT_MAIN', ADMOB_QT_MAIN
             it.buildConfigField 'String', 'ADMOB_QT_HISTORY', ADMOB_QT_HISTORY
+            it.buildConfigField 'String', 'BAIDU_APPID', BAIDU_APPID
+            it.buildConfigField 'String', 'BAIDU_KEY', BAIDU_KEY
         }
     }
     productFlavors {
@@ -37,13 +39,13 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.jakewharton:butterknife:8.0.1'
     compile('com.mikepenz:aboutlibraries:5.8.5@aar') { transitive = true }
-    compile 'com.google.android.gms:play-services-analytics:9.8.0'
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support:design:25.0.0'
-    compile 'com.google.firebase:firebase-core:9.8.0'
-    compile 'com.google.firebase:firebase-database:9.8.0'
-    compile 'com.google.firebase:firebase-ads:9.8.0'
-    releaseCompile 'com.google.firebase:firebase-crash:9.8.0'
+    compile 'com.google.android.gms:play-services-analytics:10.0.1'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.google.firebase:firebase-core:10.0.1'
+    compile 'com.google.firebase:firebase-database:10.0.1'
+    compile 'com.google.firebase:firebase-ads:10.0.1'
+    releaseCompile 'com.google.firebase:firebase-crash:10.0.1'
     compile 'com.android.volley:volley:1.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile('com.mopub:mopub-sdk:4.10.0@aar') { transitive = true }
