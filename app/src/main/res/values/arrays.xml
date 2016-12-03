@@ -58,7 +58,7 @@
         <item>Welsh</item>
         <item>Yucatec Maya</item>
     </string-array>
-    <string-array name="ms_languages_values_">
+    <string-array name="ms_languages_values">
         <item>en</item>
         <item>af</item>
         <item>ar</item>
@@ -123,6 +123,7 @@
 
 
     <string-array name="baidu_languages">
+        <item>Auto Detect</item>
         <item>English</item>
         <item>Traditional Chinese</item>
         <item>Simplified Chinese</item>
@@ -153,6 +154,7 @@
     </string-array>
 
     <string-array name="baidu_languages_values">
+        <item>auto</item>
         <item>en</item>
         <item>cht</item>
         <item>zh</item>

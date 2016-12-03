@@ -56,8 +56,8 @@
         <item>尤卡坦瑪雅語</item>
     </string-array>
 
-
     <string-array name="baidu_languages">
+        <item>自動檢測</item>
         <item>英語</item>
         <item>繁體中文</item>
         <item>簡體中文</item>

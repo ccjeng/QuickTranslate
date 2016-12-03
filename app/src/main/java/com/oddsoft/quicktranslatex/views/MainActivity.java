@@ -56,8 +56,8 @@ public class MainActivity extends BaseActivity {
 
     private static final String TAG = "QuickTranslate";
     public static final String PREF = "TRANS_Baidu";
-    public static final String PREF_FROM = "PREF_From";
-    public static final String PREF_TO = "PREF_To";
+    public static final String PREF_FROM = "TRANS_From";
+    public static final String PREF_TO = "TRANS_To";
 
     @BindView(com.oddsoft.quicktranslatex.R.id.from_language) Spinner fromSpinner;
     @BindView(R.id.to_language) Spinner toSpinner;
