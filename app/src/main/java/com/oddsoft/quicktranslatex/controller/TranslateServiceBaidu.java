@@ -37,7 +37,7 @@ public class TranslateServiceBaidu {
 
     public TranslateServiceBaidu(MainActivity content, String query, String from, String to) {
         this.content = content;
-        this.query = query;
+        this.query = query.replaceAll("(\\r|\\n|\\r\\n)+", "\\\n ");
         this.from = from;
         this.to = to;
 
@@ -115,7 +115,6 @@ public class TranslateServiceBaidu {
             }
         });
 
-        //request.setPriority(Request.Priority.HIGH);
         VolleySingleton.getInstance(content).addToRequestQueue(request1);
 
 
@@ -180,9 +179,15 @@ public class TranslateServiceBaidu {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray dataArray = jsonObject.getJSONArray("trans_result");
 
+            String lineBreak = "";
+
             for (int i = 0; i < dataArray.length(); i++) {
                 JSONObject c = dataArray.getJSONObject(i);
-                result = c.getString("dst");
+
+                if (!result.equals("")){
+                    lineBreak ="\n";
+                }
+                result = result + lineBreak + c.getString("dst");
             }
 
             Log.d(TAG, "result = " + result);
