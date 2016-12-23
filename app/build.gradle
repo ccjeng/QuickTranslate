@@ -8,8 +8,8 @@ android {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 42
-        versionName '4.2.2.110616QT'
+        versionCode 43
+        versionName '5.0.0.122416QT'
     }
     buildTypes {
         release {
@@ -40,8 +40,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.0.1'
     compile('com.mikepenz:aboutlibraries:5.8.5@aar') { transitive = true }
     compile 'com.google.android.gms:play-services-analytics:10.0.1'
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.android.support:design:25.0.1'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
     compile 'com.google.firebase:firebase-core:10.0.1'
     compile 'com.google.firebase:firebase-database:10.0.1'
     compile 'com.google.firebase:firebase-ads:10.0.1'
