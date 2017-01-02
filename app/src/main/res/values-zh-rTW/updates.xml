@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>5.0.0\n為了提供更好的翻譯品質，從這個版本開始，我們更換了新的翻譯服務
+    	<item>5.1.0\n增加越南語
     	</item>
 </string-array>
 </resources>

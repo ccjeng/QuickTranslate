@@ -150,6 +150,7 @@
         <item>Slovenian</item>
         <item>Swedish</item>
         <item>Hungarian</item>
+        <item>Vietnamese</item>
     </string-array>
 
     <string-array name="baidu_languages_values">
@@ -180,6 +181,7 @@
         <item>slo</item>
         <item>swe</item>
         <item>hu</item>
+        <item>vie</item>
     </string-array>
 </resources>
 

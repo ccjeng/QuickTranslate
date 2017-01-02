@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>5.0.0\nWe changed the translation service to provide better translation quality.
+    	<item>5.1.0\nAdd Vietnamese
     	</item>
 </string-array>
 </resources>
