@@ -8,8 +8,8 @@ android {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 45
-        versionName '5.1.1.040917QT'
+        versionCode 46
+        versionName '5.1.2.090317QT'
     }
     buildTypes {
         release {
@@ -39,18 +39,26 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.jakewharton:butterknife:8.0.1'
     compile('com.mikepenz:aboutlibraries:5.8.5@aar') { transitive = true }
-    compile 'com.google.android.gms:play-services-analytics:10.2.1'
+    compile 'com.google.android.gms:play-services-analytics:11.0.4'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
-    compile 'com.google.firebase:firebase-core:10.2.1'
-    compile 'com.google.firebase:firebase-database:10.2.1'
-    compile 'com.google.firebase:firebase-ads:10.2.1'
-    releaseCompile 'com.google.firebase:firebase-crash:10.2.1'
+    compile 'com.google.firebase:firebase-core:11.0.4'
+    compile 'com.google.firebase:firebase-database:11.0.4'
+    compile 'com.google.firebase:firebase-ads:11.0.4'
+    releaseCompile 'com.google.firebase:firebase-crash:11.0.4'
     compile 'com.android.volley:volley:1.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
-    compile('com.mopub:mopub-sdk:4.10.0@aar') { transitive = true }
+    //compile('com.mopub:mopub-sdk:4.16.1@aar') { transitive = true }
+    // For banners
+    compile('com.mopub:mopub-sdk-banner:4.16.1@aar') {
+        transitive = true
+    }
+     // For native static (images).
+    compile('com.mopub:mopub-sdk-native-static:4.16.1@aar') {
+        transitive = true
+    }
     compile files('src/main/libs/libAdapterSDKMoPub.jar')
-    compile 'com.facebook.android:facebook-android-sdk:4.20.0'
+    compile 'com.facebook.android:facebook-android-sdk:4.25.0'
     compile files('src/main/libs/FacebookAdapter.jar')
 }
 
