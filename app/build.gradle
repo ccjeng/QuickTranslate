@@ -8,7 +8,7 @@ android {
         applicationId "com.oddsoft.quicktranslatex"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 46
+        versionCode 47
         versionName '5.1.2.090317QT'
     }
     buildTypes {
@@ -57,9 +57,11 @@ dependencies {
     compile('com.mopub:mopub-sdk-native-static:4.16.1@aar') {
         transitive = true
     }
-    compile files('src/main/libs/libAdapterSDKMoPub.jar')
+    //compile files('src/main/libs/libAdapterSDKMoPub.jar')
     compile 'com.facebook.android:facebook-android-sdk:4.25.0'
-    compile files('src/main/libs/FacebookAdapter.jar')
+    //compile files('src/main/libs/FacebookAdapter.jar')
+    compile 'com.google.ads.mediation:mopub:4.15.0.0'
+    compile 'com.google.ads.mediation:facebook:4.25.0.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
