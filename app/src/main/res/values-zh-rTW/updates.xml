@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="updates">
-    	<item>5.1.2\n修復一些錯誤
+    	<item>5.2.0\n改善效能
     	</item>
 </string-array>
 </resources>
