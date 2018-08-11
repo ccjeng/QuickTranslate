@@ -239,7 +239,7 @@ public class MainActivity extends BaseActivity {
         int tmpFrom = fromSpinner.getSelectedItemPosition();
         fromSpinner.setSelection(tmpTo);
         toSpinner.setSelection(tmpFrom);
-        queueUpdate(1000 /* milliseconds */);
+        queueUpdate(2000 /* milliseconds */);
     }
 
     /**
@@ -255,7 +255,7 @@ public class MainActivity extends BaseActivity {
 
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
-                queueUpdate(1000 /* milliseconds */);
+                queueUpdate(2000 /* milliseconds */);
             }
 
             public void afterTextChanged(Editable s) {
@@ -266,7 +266,7 @@ public class MainActivity extends BaseActivity {
         itemListener = new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View v,
                                        int position, long id) {
-                queueUpdate(200 /* milliseconds */);
+                queueUpdate(3000 /* milliseconds */);
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
